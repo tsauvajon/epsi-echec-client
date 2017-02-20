@@ -8,14 +8,23 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Echecs à l'EPSI</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+
         </p>
       </div>
     );
   }
 }
+
+var PieceEnum = Object.freeze({
+  KING: 1,
+  QUEEN: 2,
+  ROOK: 3,
+  BISHOP: 4,
+  KNIGHT: 5,
+  PAWN: 6,
+});
 
 export default App;
