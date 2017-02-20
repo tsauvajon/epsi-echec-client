@@ -13,7 +13,7 @@ class Board extends Component {
     }
     return (
       <div key={ 'row' + r }>
-        { row }|
+        { row }
       </div>
     );
   }
