@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Game from './Game';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,24 +9,18 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo} className="App-logo App-logo-loading" alt="logo" />
           <h2>Echecs à l'EPSI</h2>
         </div>
         <p className="App-intro">
-
+          Jeu d'échecs en WebSocket
         </p>
+        <div>
+          <Game />
+        </div>
       </div>
     );
   }
 }
-
-var PieceEnum = Object.freeze({
-  KING: 1,
-  QUEEN: 2,
-  ROOK: 3,
-  BISHOP: 4,
-  KNIGHT: 5,
-  PAWN: 6,
-});
 
 export default App;
