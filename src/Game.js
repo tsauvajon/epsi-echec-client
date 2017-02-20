@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Board from './Board';
 import { PieceEnum } from './util';
+import { pieceMoves } from './move-tests'
 // import { getX, getY, getId, PieceEnum } from './util';
 
 function getDefaultPieces() {
@@ -45,6 +46,8 @@ class Game extends Component{
   }
   handleClick(i){
     this.props.nextPlayer();
+    const moves = pieceMoves(i, this.props.player, this.state.squares);
+    console.log(moves);
   }
   render() {
     return (

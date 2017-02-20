@@ -37,7 +37,9 @@ it('gets positions correctly', () => {
   expect(getId(getX(29), getY(29))).toEqual(29);
 });
 
-
+it('moves pawns successfully', () => {
+  // todo
+});
 
 // test connection websocket ?
 
@@ -46,3 +48,5 @@ it('gets positions correctly', () => {
 // test check
 
 // test déplacement
+
+// test mangeage
