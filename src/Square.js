@@ -37,22 +37,22 @@ function valueToImg (value) {
   let piece;
   switch (value.piece) {
     case PieceEnum.KING:
-      piece = value.player === 1 ? kingWhite : kingBlack;
+      piece = value.player === "white" ? kingWhite : kingBlack;
       break;
     case PieceEnum.QUEEN:
-      piece = value.player === 1 ? queenWhite : queenBlack;
+      piece = value.player === "white" ? queenWhite : queenBlack;
       break;
     case PieceEnum.ROOK:
-      piece = value.player === 1 ? rookWhite : rookBlack;
+      piece = value.player === "white" ? rookWhite : rookBlack;
       break;
     case PieceEnum.BISHOP:
-      piece = value.player === 1 ? bishopWhite : bishopBlack;
+      piece = value.player === "white" ? bishopWhite : bishopBlack;
       break;
     case PieceEnum.KNIGHT:
-      piece = value.player === 1 ? knightWhite : knightBlack;
+      piece = value.player === "white" ? knightWhite : knightBlack;
       break;
     case PieceEnum.PAWN:
-      piece = value.player === 1 ? pawnWhite : pawnBlack;
+      piece = value.player === "white" ? pawnWhite : pawnBlack;
       break;
     default:
 
