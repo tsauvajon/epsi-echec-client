@@ -15,7 +15,6 @@ class Board extends Component {
       increase = -1;
     }
     for (let i = start; i < 8 && i > -1; i += increase) {
-      console.log("i : " + i + " - r : " + r);
       row.push(this.renderSquare(r*8 + i));
     }
     return (
@@ -25,10 +24,6 @@ class Board extends Component {
     );
   }
   renderRows() {
-    // 0 1 2 3 4 5 6 7
-    // 7 6 5 4 3 2 1 0
-    // start = 0, i < 8
-    // start = 7, i > -1
     const rows = [];
     let start = 0;
     let increase = 1;

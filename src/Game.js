@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import Board from './Board';
-
-const PieceEnum = Object.freeze({
-  KING: 1,
-  QUEEN: 2,
-  ROOK: 3,
-  BISHOP: 4,
-  KNIGHT: 5,
-  PAWN: 6,
-});
+import { PieceEnum } from './util';
+// import { getX, getY, getId, PieceEnum } from './util';
 
 function getDefaultPieces() {
 
@@ -45,18 +38,19 @@ class Game extends Component{
   constructor() {
     super();
     const squares = getDefaultPieces();
-
     this.state = {
       squares: squares,
       whiteIsNext: true,
-      player: "white",
     };
+  }
+  handleClick(i){
+    this.props.nextPlayer();
   }
   render() {
     return (
       <div className="game" key="game">
         <div className="game-board" key="game-board">
-          <Board squares={ this.state.squares } player={ this.state.player }
+          <Board squares={ this.state.squares } player={ this.props.player || "white" }
             onClick={ (i) => this.handleClick(i) }
           />
         </div>

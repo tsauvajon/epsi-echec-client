@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { PieceEnum } from './util';
+// images
 import bishopBlack from './pieces/bishop-black.svg';
 import bishopWhite from './pieces/bishop-white.svg';
 import kingBlack from './pieces/king-black.svg';
@@ -11,15 +13,6 @@ import queenBlack from './pieces/queen-black.svg';
 import queenWhite from './pieces/queen-white.svg';
 import rookBlack from './pieces/rook-black.svg';
 import rookWhite from './pieces/rook-white.svg';
-
-const PieceEnum = Object.freeze({
-  KING: 1,
-  QUEEN: 2,
-  ROOK: 3,
-  BISHOP: 4,
-  KNIGHT: 5,
-  PAWN: 6,
-});
 
 class Square extends Component {
   render() {
