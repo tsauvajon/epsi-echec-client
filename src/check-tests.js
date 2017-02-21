@@ -1,3 +1,6 @@
+import { PieceEnum } from './util';
+import { pieceMoves } from './move-tests';
+
 function assessCheck(squareFrom, squareTo, squares) {
     if (!squares[squareFrom])
       throw "invalid 'from' square";
@@ -10,19 +13,18 @@ function assessCheck(squareFrom, squareTo, squares) {
 
 // la fonction vérifie si un joueur est en échec
 function checkCheck(squares, player) {
-
   // pour chaque pièce du player adverse : vérifier si le roi du player en cours est menacé
   let king = null;
   const eats = [];
   for (let i = 0; i < 64; i++) {
-    if (square[i]){
-      if (square[i].player != player) {
+    if (squares[i]) {
+      if (squares[i].player != player) {
         // executer pieceEats dessus
-        if (pieceEats(i, buffer)) {
+        if (pieceMoves(i, squares).eats) {
           eatenBy = [ ...eatenBy, i];
         }
       }
-      else if (square[i].piece === PieceEnum.KING) {
+      else if (squares[i].piece === PieceEnum.KING) {
         king = i;
       }
     }
@@ -32,4 +34,4 @@ function checkCheck(squares, player) {
   return eatenBy;
 }
 
-export { assesCheck, checkCheck };
+export { assessCheck, checkCheck };
