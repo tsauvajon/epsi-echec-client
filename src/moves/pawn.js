@@ -46,24 +46,24 @@ function pawnEats(square, squares, player) {
 
   if (player === "white") {
     // haut gauche
-    if (pos.addY(-1) && pos.addX(-1) && squares[pos.i] && squares[pos.i].player != player)
+    if (pos.addY(-1) && pos.addX(-1) && squares[pos.i] && squares[pos.i].player !== player)
       eats.push(pos.i);
 
     pos.setI(square);
 
     // haut droite
-    if (pos.addY(-1) && pos.addX(1) && squares[pos.i] && squares[pos.i].player != player)
+    if (pos.addY(-1) && pos.addX(1) && squares[pos.i] && squares[pos.i].player !== player)
       eats.push(pos.i);
   }
   else {
     // bas gauche
-    if (pos.addY(1) && pos.addX(-1) && squares[pos.i] && squares[pos.i].player != player)
+    if (pos.addY(1) && pos.addX(-1) && squares[pos.i] && squares[pos.i].player !== player)
       eats.push(pos.i);
 
     pos.setI(square);
 
     // bas droite
-    if (pos.addY(1) && pos.addX(1) && squares[pos.i] && squares[pos.i].player != player)
+    if (pos.addY(1) && pos.addX(1) && squares[pos.i] && squares[pos.i].player !== player)
       eats.push(pos.i);
   }
 

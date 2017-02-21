@@ -8,7 +8,7 @@ function knightMoves(square, squares) {
   // toutes les combinaisons 1/-1 <=> 2/-2 soit 8 combinaisons en tout
 
   for(let x = -2; x < 3; x++) {
-    if (x != 0){
+    if (x !== 0){
       let y;
       if (x < 0){
         y = (3 + x);
@@ -23,7 +23,7 @@ function knightMoves(square, squares) {
         if (!squares[pos.i]){
           moves.push(pos.i);
         }
-        else if (squares[pos.i].player != player){
+        else if (squares[pos.i].player !== player){
           eats.push(pos.i)
         }
       }
@@ -34,7 +34,7 @@ function knightMoves(square, squares) {
         if (!squares[pos.i]){
           moves.push(pos.i);
         }
-        else if (squares[pos.i].player != player){
+        else if (squares[pos.i].player !== player){
           eats.push(pos.i)
         }
       }
