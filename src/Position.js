@@ -23,7 +23,7 @@ class Position {
 
   addY(y) {
     const newY = this.y() + y;
-    if (y < 0 || y > 7) {
+    if (newY < 0 || newY > 7) {
       return null;
     }
     this.setI(getId(this.x(), newY));
@@ -32,9 +32,10 @@ class Position {
 
   addX(x) {
     const newX = this.x() + x;
-    if (x < 0 || x > 7) {
+    if (newX < 0 || newX > 7) {
       return null;
     }
+    this.i += x;
     this.setI(newX, this.y());
     return this;
   }
