@@ -6,6 +6,7 @@ module.exports = {
         "import"
     ],
     "env": {
-    "jest": true
+    "jest": true,
+    "browser": true
   }
 };

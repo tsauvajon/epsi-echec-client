@@ -50,16 +50,6 @@ function valueToImg(value) {
   );
 }
 
-// class Square extends Component {
-//   render() {
-//     return (
-//       <button className="square" onClick={() => this.props.onClick()}>
-//         {valueToImg(this.props.value)}
-//       </button>
-//     );
-//   }
-// }
-
 function Square(props) {
   return (
     <button className="square" onClick={() => props.onClick()}>
@@ -69,7 +59,6 @@ function Square(props) {
 }
 
 Square.propTypes = {
-  value: React.PropTypes.arrayOf(React.PropTypes.object),
   onClick: React.PropTypes.func,
 };
 

@@ -1,5 +1,5 @@
-import { bishopMoves } from './bishop';
-import { rookMoves } from './rook';
+import bishopMoves from './bishop';
+import rookMoves from './rook';
 
 function queenMoves(square, squares) {
   const bishop = bishopMoves(square, squares);
