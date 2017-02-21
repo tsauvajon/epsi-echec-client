@@ -11,8 +11,9 @@ function pawnDeplacements(square, squares, player) {
   const x = getX(square);
   const y = getY(square);
 
+  // testOne : +1 case
+  // testTwo : +2 cases (doit être dans la ligne de départ)
   if (player === "white") {
-
     let testOne = getId(x, y - 1);
     if(testOne >= 0 && !squares[testOne]) {
       moves.push(testOne);
