@@ -46,7 +46,7 @@ class Board extends Component {
   render() {
     return (
       <div>
-        { this.renderRows() }
+        {this.renderRows()}
       </div>
     );
   }
