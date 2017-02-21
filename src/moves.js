@@ -1,6 +1,6 @@
 import { PieceEnum } from './util';
 import { knightMoves } from './moves/knight';
-import { pawnMoves } from './moves/pawn';
+import pawnMoves from './moves/pawn';
 import { rookMoves } from './moves/rook';
 import { bishopMoves } from './moves/bishop';
 import { queenMoves } from './moves/queen';
