@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Board from './Board';
 import { PieceEnum, getDefaultPieces } from './util';
-import { pieceMoves } from './move-tests'
+import { pieceMoves } from './moves'
 // import { getX, getY, getId, PieceEnum } from './util';
 
 class Game extends Component{

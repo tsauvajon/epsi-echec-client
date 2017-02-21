@@ -3,7 +3,7 @@ import Position from './Position';
 
 function move(squares, from, to) {
   const buffer = squares.slice();
-  buffer[to] = squares[from];
+  buffer[to] = buffer[from];
   buffer[from] = null;
   return buffer;
 }
@@ -37,13 +37,12 @@ function pieceMoves(square, squares){
 
 //////////////// PAWN ////////////////
 
-// TODO : check check (sans mauvais jeu de mot)
 function pawnMoves(square, squares) {
-    return { moves: pawnDeplacements(square, squares), eats: pawnEats(square, squares) }
+  const player = squares[square].player;
+  return { moves: pawnDeplacements(square, squares, player), eats: pawnEats(square, squares, player) }
 }
 
-function pawnDeplacements(square, squares) {
-  const player = squares[square].player;
+function pawnDeplacements(square, squares, player) {
   const moves = [];
   const x = getX(square);
   const y = getY(square);
@@ -77,19 +76,34 @@ function pawnDeplacements(square, squares) {
   return moves;
 }
 
-function pawnEats(square, squares) {
-  const player = squares[square].player;
+function pawnEats(square, squares, player) {
   const eats = [];
   const pos = new Position(square);
 
   if (player === "white") {
-    // TODO
+    // haut gauche
+    if (pos.addY(-1) && pos.addX(-1) && squares[pos.i] && squares[pos.i].player != player)
+      eats.push(pos.i);
+
+    pos.setI(square);
+
+    // haut droite
+    if (pos.addY(-1) && pos.addX(1) && squares[pos.i] && squares[pos.i].player != player)
+      eats.push(pos.i);
   }
   else {
-    // TODO
+    // bas gauche
+    if (pos.addY(1) && pos.addX(-1) && squares[pos.i] && squares[pos.i].player != player)
+      eats.push(pos.i);
+
+    pos.setI(square);
+
+    // bas droite
+    if (pos.addY(1) && pos.addX(1) && squares[pos.i] && squares[pos.i].player != player)
+      eats.push(pos.i);
   }
 
-  return [];
+  return eats;
 }
 
 //////////////// ROOK ////////////////
@@ -100,51 +114,41 @@ function rookMoves(square, squares) {
   const player = squares[square].player;
   const pos = new Position(square);
 
-  let test = 0;
-
-  while (pos.addX(1) && test < 12){
-    test++;
+  // vers le bas
+  while (pos.addX(1) && !squares[pos.i]) {
+    moves.push(pos.i);
   }
-  //
-  // // vers le bas
-  // while (pos.addX(1) && !square[pos.i]) {
-  //   moves.push(pos.i);
-  // }
-  // pos.addX(1);
-  // if (square[pos.i] && square[pos.i].player !== player) {
-  //   eats.push(pos.i);
-  // }
-  //
-  //
-  // // vers le haut
-  // pos.setI(square);
-  // while (pos.addX(-1) && !square[pos.i]) {
-  //   moves.push(pos.i);
-  // }
-  // pos.addX(-1);
-  // if (square[pos.i] && square[pos.i].player !== player) {
-  //   eats.push(pos.i);
-  // }
-  //
-  // // droite
-  // pos.setI(square);
-  // while (pos.addY(1) && !square[pos.i]) {
-  //   moves.push(pos.i);
-  // }
-  // pos.addY(1);
-  // if (square[pos.i] && square[pos.i].player !== player) {
-  //   eats.push(pos.i);
-  // }
-  //
-  // // gauche
-  // pos.setI(square);
-  // while (pos.addY(-1) && !square[pos.i]) {
-  //   moves.push  (pos.i);
-  // }
-  // pos.addY(-1);
-  // if (square[pos.i] && square[pos.i].player !== player) {
-  //   eats.push(pos.i);
-  // }
+  if (squares[pos.i] && squares[pos.i].player !== player) {
+    eats.push(pos.i);
+  }
+
+
+  // vers le haut
+  pos.setI(square);
+  while (pos.addX(-1) && !squares[pos.i]) {
+    moves.push(pos.i);
+  }
+  if (squares[pos.i] && squares[pos.i].player !== player) {
+    eats.push(pos.i);
+  }
+
+  // droite
+  pos.setI(square);
+  while (pos.addY(1) && !squares[pos.i]) {
+    moves.push(pos.i);
+  }
+  if (squares[pos.i] && squares[pos.i].player !== player) {
+    eats.push(pos.i);
+  }
+
+  // gauche
+  pos.setI(square);
+  while (pos.addY(-1) && !squares[pos.i]) {
+    moves.push  (pos.i);
+  }
+  if (squares[pos.i] && squares[pos.i].player !== player) {
+    eats.push(pos.i);
+  }
 
   return { moves: moves, eats: eats };
 

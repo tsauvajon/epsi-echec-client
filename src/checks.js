@@ -1,5 +1,5 @@
 import { PieceEnum } from './util';
-import { pieceMoves } from './move-tests';
+import { pieceMoves } from './moves';
 
 function assessCheck(squareFrom, squareTo, squares) {
     if (!squares[squareFrom])
