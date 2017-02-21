@@ -1,17 +1,16 @@
 const PieceEnum = Object.freeze({
-  KING: "king",
-  QUEEN: "queen",
-  ROOK: "rook",
-  BISHOP: "bishop",
-  KNIGHT: "knight",
-  PAWN: "pawn",
+  KING: 'king',
+  QUEEN: 'queen',
+  ROOK: 'rook',
+  BISHOP: 'bishop',
+  KNIGHT: 'knight',
+  PAWN: 'pawn',
 });
 
 function getDefaultPieces() {
-
   const squares = Array(64).fill(null);
-  const w = "white";
-  const b = "black";
+  const w = 'white';
+  const b = 'black';
 
   squares[56] = { piece: PieceEnum.ROOK, player: w };
   squares[63] = { piece: PieceEnum.ROOK, player: w };
@@ -21,7 +20,7 @@ function getDefaultPieces() {
   squares[61] = { piece: PieceEnum.BISHOP, player: w };
   squares[59] = { piece: PieceEnum.QUEEN, player: w };
   squares[60] = { piece: PieceEnum.KING, player: w };
-  for (let i = 48; i < 56; i++){
+  for (let i = 48; i < 56; i += 1) {
     squares[i] = { piece: PieceEnum.PAWN, player: w };
   }
 
@@ -33,7 +32,7 @@ function getDefaultPieces() {
   squares[5] = { piece: PieceEnum.BISHOP, player: b };
   squares[3] = { piece: PieceEnum.QUEEN, player: b };
   squares[4] = { piece: PieceEnum.KING, player: b };
-  for (let i = 8; i < 16; i++){
+  for (let i = 8; i < 16; i += 1) {
     squares[i] = { piece: PieceEnum.PAWN, player: b };
   }
 
@@ -41,15 +40,15 @@ function getDefaultPieces() {
 }
 
 function getX(i) {
-  return i%8;
+  return i % 8;
 }
 
 function getY(i) {
-  return parseInt(i/8, 10);
+  return parseInt(i / 8, 10);
 }
 
 function getId(x, y) {
-  return y*8+x;
+  return (y * 8) + x;
 }
 
-export {  PieceEnum, getX, getY, getId, getDefaultPieces };
+export { PieceEnum, getX, getY, getId, getDefaultPieces };

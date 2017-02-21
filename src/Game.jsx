@@ -35,8 +35,11 @@ class Game extends Component {
   }
 }
 Game.propTypes = {
-  nextPlayer: React.PropTypes.func.isRequired,
+  nextPlayer: React.PropTypes.func,
   player: React.PropTypes.string.isRequired,
+};
+Game.defaultProps = {
+  nextPlayer() {},
 };
 
 export default Game;

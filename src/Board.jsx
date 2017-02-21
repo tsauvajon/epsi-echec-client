@@ -54,7 +54,7 @@ class Board extends Component {
   }
 }
 Board.propTypes = {
-  squares: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  squares: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
   player: React.PropTypes.string.isRequired,
   onClick: React.PropTypes.func.isRequired,
 };

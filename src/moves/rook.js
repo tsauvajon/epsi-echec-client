@@ -36,13 +36,13 @@ function rookMoves(square, squares) {
   // gauche
   pos.setI(square);
   while (pos.addY(-1) && !squares[pos.i]) {
-    moves.push  (pos.i);
+    moves.push(pos.i);
   }
   if (squares[pos.i] && squares[pos.i].player !== player) {
     eats.push(pos.i);
   }
 
-  return { moves: moves, eats: eats };
+  return { moves, eats };
 }
 
-export { rookMoves };
+export default rookMoves;

@@ -38,13 +38,13 @@ function bishopMoves(square, squares) {
   // haut-gauche
   pos.setI(square);
   while (pos.addXY(-1, -1) && !squares[pos.i]) {
-    moves.push  (pos.i);
+    moves.push(pos.i);
   }
   if (squares[pos.i] && squares[pos.i].player !== player) {
     eats.push(pos.i);
   }
 
-  return { moves: moves, eats: eats };
+  return { moves, eats };
 }
 
-export { bishopMoves };
+export default bishopMoves;

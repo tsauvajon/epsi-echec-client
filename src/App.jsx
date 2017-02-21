@@ -6,30 +6,30 @@ import white from './pieces/king-white.svg';
 import './App.css';
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       logo: black,
     };
   }
-  nextPlayer(){
-    const player = (this.state.logo === black) ? "white" : "black";
-    const logo = (player === "white") ? white : black;
+  nextPlayer() {
+    const player = (this.state.logo === black) ? 'white' : 'black';
+    const logo = (player === 'white') ? white : black;
     this.setState({
-      logo: logo,
+      logo,
     });
   }
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={ this.state.logo } className="App-logo App-logo-loading" alt="logo" />
-          <h2>Echecs à l'EPSI</h2>
+          <img src={this.state.logo} className="App-logo App-logo-loading" alt="logo" />
+          <h2>Echecs à l&#39;EPSI</h2>
         </div>
         <p className="App-intro">
-          Jeu d'échecs en WebSocket
+          Jeu d&#39;échecs en WebSocket
         </p>
-        <Game player="white" nextPlayer={ () => this.nextPlayer() } />
+        <Game player="white" nextPlayer={() => this.nextPlayer()} />
       </div>
     );
   }

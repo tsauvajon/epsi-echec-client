@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 import App from '../App';
 import Game from '../Game';
-import renderer from 'react-test-renderer';
 import { getX, getY, getId } from '../util';
 
 it('renders without crashing', () => {
@@ -12,12 +12,12 @@ it('renders without crashing', () => {
 
 it('renders correctly for both players', () => {
   const white = renderer.create(
-    <Game player="white" />
+    <Game player="white" />,
   ).toJSON();
   expect(white).toMatchSnapshot();
 
   const black = renderer.create(
-    <Game player="black" />
+    <Game player="black" />,
   ).toJSON();
   expect(black).toMatchSnapshot();
 });

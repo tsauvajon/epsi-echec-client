@@ -10,8 +10,7 @@ function kingMoves(square, squares) {
   if (pos.addX(1) && pos.addY(1)) {
     if (!squares[pos.i]) {
       moves.push(pos.i);
-    }
-    else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i] && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -21,8 +20,7 @@ function kingMoves(square, squares) {
   if (pos.addX(1) && pos.addY(-1)) {
     if (!squares[pos.i]) {
       moves.push(pos.i);
-    }
-    else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i] && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -32,8 +30,7 @@ function kingMoves(square, squares) {
   if (pos.addX(-1) && pos.addY(1)) {
     if (!squares[pos.i]) {
       moves.push(pos.i);
-    }
-    else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i] && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -43,8 +40,7 @@ function kingMoves(square, squares) {
   if (pos.addX(-1) && pos.addY(-1)) {
     if (!squares[pos.i]) {
       moves.push(pos.i);
-    }
-    else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i] && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -53,8 +49,7 @@ function kingMoves(square, squares) {
   if (pos.addY(1)) {
     if (!squares[pos.i]) {
       moves.push(pos.i);
-    }
-    else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i] && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -64,8 +59,7 @@ function kingMoves(square, squares) {
   if (pos.addY(-1)) {
     if (!squares[pos.i]) {
       moves.push(pos.i);
-    }
-    else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i] && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -75,8 +69,7 @@ function kingMoves(square, squares) {
   if (pos.addX(-1)) {
     if (!squares[pos.i]) {
       moves.push(pos.i);
-    }
-    else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i] && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -86,13 +79,12 @@ function kingMoves(square, squares) {
   if (pos.addX(1)) {
     if (!squares[pos.i]) {
       moves.push(pos.i);
-    }
-    else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i] && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
 
-  return { moves: moves, eats: eats };
+  return { moves, eats };
 }
 
-export { kingMoves };
+export default kingMoves;
