@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import Game from './Game';
+import App from '../App';
+import Game from '../Game';
 import renderer from 'react-test-renderer';
-import { getX, getY, getId } from './util';
+import { getX, getY, getId } from '../util';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
