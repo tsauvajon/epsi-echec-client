@@ -35,8 +35,7 @@ class Position {
     if (newX < 0 || newX > 7) {
       return null;
     }
-    this.i += x;
-    this.setI(newX, this.y());
+    this.setI(getId(newX, this.y()));
     return this;
   }
 }
