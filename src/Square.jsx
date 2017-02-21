@@ -59,6 +59,10 @@ function Square(props) {
 }
 
 Square.propTypes = {
+  value: React.PropTypes.objectOf(
+    React.PropTypes.string,
+    React.PropTypes.string,
+    React.PropTypes.arrayOf(React.PropTypes.string)),
   onClick: React.PropTypes.func,
 };
 
