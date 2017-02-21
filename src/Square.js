@@ -50,12 +50,12 @@ function valueToImg (value) {
     default:
 
   }
-  let classes;
+  let classes = "chessman";
   if (value.classes) {
-    classes = ' ' + value.classes.join(' ');
+    classes.concat(' ' + value.classes.join(' '));
   }
   return (
-    <img src={ piece } className={ "chessman" + classes } alt="" />
+    <img src={ piece } className={ classes } alt="" />
   );
 }
 

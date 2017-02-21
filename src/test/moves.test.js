@@ -26,13 +26,11 @@ it('moves knights', () => {
 
 it('moves bishops', () => {
   const moves = testMove(58, 36);
-  console.log(moves);
   return expect(moves).toMatchSnapshot();
 })
 
 it('moves queens', () => {
   const moves = testMove(59, 36);
-  console.log(moves);
   return expect(moves).toMatchSnapshot();
 })
 

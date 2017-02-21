@@ -72,6 +72,18 @@
   background: grey;
 }
 
+.can-move {
+  background: green;
+}
+
+.can-eat {
+  background: orange;
+}
+
+.is-check {
+  background: red;
+}
+
 .game-info {
   margin-left: 20px;
 }
