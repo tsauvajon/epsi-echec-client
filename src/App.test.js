@@ -36,17 +36,3 @@ it('gets positions correctly', () => {
   expect(getId(getX(55), getY(55))).toEqual(55);
   expect(getId(getX(29), getY(29))).toEqual(29);
 });
-
-it('moves pawns successfully', () => {
-  // todo
-});
-
-// test connection websocket ?
-
-// partie de test
-
-// test check
-
-// test déplacement
-
-// test mangeage
