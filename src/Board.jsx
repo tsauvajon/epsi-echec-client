@@ -3,8 +3,11 @@ import Square from './Square';
 
 class Board extends Component {
   renderSquare(i) {
-    return <Square key={ 'square' + i } value={ this.props.squares[i] }
-      onClick={() => this.props.onClick(i) } />;
+    return <Square
+      key={'square' + i}
+      value={this.props.squares[i]}
+      onClick={() => this.props.onClick(i)}
+    />;
   }
   renderRow(r) {
     const row = [];
