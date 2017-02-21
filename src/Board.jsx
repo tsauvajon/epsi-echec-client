@@ -3,26 +3,28 @@ import Square from './Square';
 
 class Board extends Component {
   renderSquare(i) {
-    return <Square
-      key={'square' + i}
-      value={this.props.squares[i]}
-      onClick={() => this.props.onClick(i)}
-    />;
+    return (
+      <Square
+        key={`square ${i}`}
+        value={this.props.squares[i]}
+        onClick={() => this.props.onClick(i)}
+      />
+    );
   }
   renderRow(r) {
     const row = [];
     let start = 0;
     let increase = 1;
-    if (this.props.player === "black") {
+    if (this.props.player === 'black') {
       start = 7;
       increase = -1;
     }
     for (let i = start; i < 8 && i > -1; i += increase) {
-      row.push(this.renderSquare(r*8 + i));
+      row.push(this.renderSquare((r * 8) + i));
     }
     return (
-      <div key={ 'row' + r }>
-        { row }
+      <div key={`row ${r}`}>
+        {row}
       </div>
     );
   }
@@ -30,7 +32,7 @@ class Board extends Component {
     const rows = [];
     let start = 0;
     let increase = 1;
-    if (this.props.player === "black") {
+    if (this.props.player === 'black') {
       start = 7;
       increase = -1;
     }
@@ -51,5 +53,10 @@ class Board extends Component {
     );
   }
 }
+Board.propTypes = {
+  squares: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  player: React.PropTypes.string.isRequired,
+  onClick: React.PropTypes.func.isRequired,
+};
 
 export default Board;
