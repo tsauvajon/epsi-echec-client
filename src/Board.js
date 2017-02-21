@@ -10,7 +10,7 @@ class Board extends Component {
     const row = [];
     let start = 0;
     let increase = 1;
-    if (this.props.player === "black"){
+    if (this.props.player === "black") {
       start = 7;
       increase = -1;
     }
@@ -27,7 +27,7 @@ class Board extends Component {
     const rows = [];
     let start = 0;
     let increase = 1;
-    if (this.props.player === "black"){
+    if (this.props.player === "black") {
       start = 7;
       increase = -1;
     }
