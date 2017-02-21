@@ -13,8 +13,8 @@ function move(squares, from, to) {
   return buffer;
 }
 
-function pieceMoves(square, squares){
-  if (squares[square]){
+function pieceMoves(square, squares) {
+  if (squares[square]) {
     switch (squares[square].piece) {
       case PieceEnum.PAWN:
         return pawnMoves(square, squares);
@@ -38,6 +38,7 @@ function pieceMoves(square, squares){
         return null;
     }
   }
+  return null;
 }
 
 export { pieceMoves, move };
