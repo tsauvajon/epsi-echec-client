@@ -36,7 +36,6 @@ it('moves queens', () => {
 
 it('moves kings', () => {
   const moves = testMove(4, 62);
-  console.log(moves);
   return expect(moves).toMatchSnapshot();
 })
 

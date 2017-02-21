@@ -6,36 +6,38 @@ function bishopMoves(square, squares) {
   const player = squares[square].player;
   const pos = new Position(square);
 
-  // vers le bas
-  while (pos.addX(1) && pos.addY(1) && !squares[pos.i]) {
+  // FIXME : vérifier que à la fois addX et addY sont ok
+  //
+
+  // bas-droite
+  while (pos.addXY(1, 1) && !squares[pos.i]) {
     moves.push(pos.i);
   }
   if (squares[pos.i] && squares[pos.i].player !== player) {
     eats.push(pos.i);
   }
 
-
-  // vers le haut
+  // haut-droite
   pos.setI(square);
-  while (pos.addX(1) && pos.addY(-1) && !squares[pos.i]) {
+  while (pos.addXY(1, -1) && !squares[pos.i]) {
     moves.push(pos.i);
   }
   if (squares[pos.i] && squares[pos.i].player !== player) {
     eats.push(pos.i);
   }
 
-  // droite
+  // bas-gauche
   pos.setI(square);
-  while (pos.addX(-1) && pos.addY(1) && !squares[pos.i]) {
+  while (pos.addXY(-1, 1) && !squares[pos.i]) {
     moves.push(pos.i);
   }
   if (squares[pos.i] && squares[pos.i].player !== player) {
     eats.push(pos.i);
   }
 
-  // gauche
+  // haut-gauche
   pos.setI(square);
-  while (pos.addX(-1) && pos.addY(-1) && !squares[pos.i]) {
+  while (pos.addXY(-1, -1) && !squares[pos.i]) {
     moves.push  (pos.i);
   }
   if (squares[pos.i] && squares[pos.i].player !== player) {
