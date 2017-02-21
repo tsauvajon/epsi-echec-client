@@ -1,4 +1,3 @@
-import Position from '../Position';
 import { bishopMoves } from './bishop';
 import { rookMoves } from './rook';
 
