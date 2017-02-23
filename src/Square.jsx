@@ -50,7 +50,6 @@ function valueToImg(piece, player) {
 function getClassNames(classes) {
   let classNames = 'square';
   if (classes) {
-    // console.log(classes);
     for (let c = 0; c < classes.length; c += 1) {
       classNames = classNames.concat(' ', classes[c]);
     }

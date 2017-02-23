@@ -10,6 +10,7 @@ class App extends Component {
     super();
     this.state = {
       logo: white,
+      check: false,
     };
   }
   nextPlayer() {
@@ -17,19 +18,25 @@ class App extends Component {
     const logo = (player === 'white') ? white : black;
     this.setState({
       logo,
+      check: false,
     });
+  }
+  check() {
+    this.setState({
+      check: true,
+    })
   }
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={this.state.logo} className="App-logo App-logo-loading" alt="logo" />
+          <img src={this.state.logo} className={`App-logo ${this.state.check ? 'App-logo-check' : 'App-logo-default'}`} alt="logo" />
           <h2>Echecs à l&#39;EPSI</h2>
         </div>
         <p className="App-intro">
           Jeu d&#39;échecs en WebSocket
         </p>
-        <Game player="white" nextPlayer={() => this.nextPlayer()} />
+        <Game player="white" nextPlayer={() => this.nextPlayer()} check={() => this.check()} />
       </div>
     );
   }

@@ -8,8 +8,12 @@
   border-radius: 40px;
 }
 
-.App-logo-loading {
+.App-logo-default {
   animation: App-logo-spin 5s 0s infinite;
+}
+
+.App-logo-check {
+  animation: App-logo-spin-check 5s 0s infinite;
 }
 
 .App-header {
@@ -30,6 +34,12 @@
   100% { transform: rotate(0deg); background: grey; }
 }
 
+@keyframes App-logo-spin-check {
+  0% { transform: rotate(0deg); background: pink;}
+  50% { transform: rotate(360deg); }
+  80% {  background: red;}
+  100% { transform: rotate(0deg); background: pink; }
+}
 
 .square {
   background: #fff;
@@ -81,6 +91,10 @@
 }
 
 .is-check {
+  background: red;
+}
+
+.causes-check {
   background: red;
 }
 

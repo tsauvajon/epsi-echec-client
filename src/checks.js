@@ -1,38 +1,52 @@
 import { PieceEnum } from './util';
-import { pieceMoves } from './moves';
+import { pieceMoves, move } from './moves';
+
+function findTheKing(squares, player) {
+  let king = null;
+  for (let s = 0; s < 64; s += 1) {
+    if (
+      squares[s].piece
+      && squares[s].piece === PieceEnum.KING
+      && squares[s].player === player
+    ) {
+      king = s;
+    }
+  }
+
+  if (!king) {
+    throw new Error('checkCheck : no king for the player');
+  }
+  return king;
+}
 
 // la fonction vérifie si un joueur est en échec
 function checkCheck(squares, player) {
   // pour chaque pièce du player adverse : vérifier si le roi du player en cours est menacé
-  let king = null;
+
+  // etape 1 : trouver le roi du joueur en cours
+  const king = findTheKing(squares, player);
+
+  // etape 2 : trouver les pièces de l'autre joueur qui bouffent ce roi
   const eatenBy = [];
-  for (let i = 0; i < 64; i += 1) {
-    if (squares[i].piece) {
-      if (squares[i].player !== player) {
-        // executer pieceEats dessus
-        if (pieceMoves(i, squares).eats) {
-          eatenBy.push(i);
-        }
-      } else if (squares[i].piece === PieceEnum.KING) {
-        king = i;
+  for (let s = 0; s < 64; s += 1) {
+    if (squares[s].piece && squares[s].player !== player) {
+      // regarder s'il mange le roi
+      if (pieceMoves(s, squares).eats.includes(king)) {
+        eatenBy.push(s);
       }
     }
   }
-  if (!king) {
-    throw new Error('checkCheck : no king for the player');
-  }
+
   return eatenBy;
 }
 
-function assessCheck(squareFrom, squareTo, squares) {
+function assessCheck(squares, squareFrom, squareTo) {
   if (!squares[squareFrom].piece) {
     throw new Error("invalid 'from' square");
   }
   const player = squares[squareFrom].player;
-  const buffer = squares.slice();
-  buffer[squareTo] = squares[squareFrom];
-  buffer[squareFrom] = null;
+  const buffer = move(squares, squareFrom, squareTo);
   return checkCheck(buffer, player);
 }
 
-export { assessCheck, checkCheck };
+export { assessCheck, checkCheck, findTheKing };
