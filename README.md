@@ -4,7 +4,8 @@
 - cloner le repértoire
 - installer node LTS si c'est pas encore fait
 
-- dans le terminal, à la racine du projet :
+
+dans le terminal, à la racine du projet :
 ## npm
 
 Installer les dépendences
