@@ -28,7 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --force-exit",
     "eject": "react-scripts eject",
-    "lint": "eslint ./ --cache --ignore-pattern .gitignore build/",
+    "lint": "./node_modules/.bin/eslint ./ --cache --ignore-pattern .gitignore",
     "deploy" : "npm run build&&gh-pages -d build"
   },
   "pre-commit": {
