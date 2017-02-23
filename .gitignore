@@ -40,6 +40,6 @@ jspm_packages
 *.snap
 
 # npm run build
-build/
+build
 
 .eslintcache
