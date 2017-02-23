@@ -42,4 +42,4 @@ Pour commit :
   git commit -m "description du commit ..."
   git push
 ```
-Si le lint ne passe pas, corrifer les erreurs puis re-commit
+Si le lint ne passe pas, corriger les erreurs puis re-commit
