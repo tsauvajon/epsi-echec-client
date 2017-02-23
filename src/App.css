@@ -16,6 +16,10 @@
   animation: App-logo-spin-check 5s 0s infinite;
 }
 
+.App-logo-check-mate {
+  animation: Win-animation 4s forwards;
+}
+
 .App-header {
   background-color: #222;
   height: 150px;
@@ -41,7 +45,7 @@
   100% { transform: rotate(0deg); background: pink; }
 }
 
-@keyframes King-check {
+@keyframes Wiggle {
   0% { transform: rotate(0deg); }
   10% { transform: rotate(30deg); }
   30% { transform: rotate(-30deg); }
@@ -49,6 +53,17 @@
   70% { transform: rotate(-30deg); }
   90% { transform: rotate(30deg); }
   100% { transform: rotate(0deg); }
+}
+
+@keyframes In-and-out {
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes Win-animation {
+  /*30% { transform: translateY(300px); }*/
+  60% { transform: translateY(260px); }
+  100% { transform: translateY(-20px); background: #ddd; height: 190px; border-radius: 100px; }
 }
 
 .square {
@@ -102,11 +117,15 @@
 
 .is-check {
   background: red;
-  animation: King-check 2.5s linear;
+}
+
+.is-check .chessman {
+  animation: Wiggle 2.5s linear;
 }
 
 .causes-check {
   background: red;
+  animation: In-and-out 1s linear;
 }
 
 .game-info {

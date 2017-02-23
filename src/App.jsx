@@ -26,17 +26,34 @@ class App extends Component {
       check: true,
     })
   }
+  checkMate(winner) {
+    const logo = (winner === 'white') ? white : black;
+    this.setState({
+      logo,
+      checkMate: true,
+    });
+  }
   render() {
+    const className = this.state.checkMate ?
+    'App-logo-check-mate'
+    : this.state.check
+    ? 'App-logo-check'
+    : 'App-logo-default';
     return (
       <div className="App">
         <div className="App-header">
-          <img src={this.state.logo} className={`App-logo ${this.state.check ? 'App-logo-check' : 'App-logo-default'}`} alt="logo" />
+          <img src={this.state.logo} className={`App-logo ${className}`} alt="logo" />
           <h2>Echecs à l&#39;EPSI</h2>
         </div>
         <p className="App-intro">
           Jeu d&#39;échecs en WebSocket
         </p>
-        <Game player="white" nextPlayer={() => this.nextPlayer()} check={() => this.check()} />
+        <Game
+          player="white"
+          nextPlayer={() => this.nextPlayer()}
+          check={() => this.check()}
+          checkMate={winner => this.checkMate(winner)}
+        />
       </div>
     );
   }

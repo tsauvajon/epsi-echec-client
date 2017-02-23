@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Board from './Board';
 import { getDefaultPieces, PieceEnum } from './util';
 import { pieceMoves, move } from './moves';
-import { assessCheck, checkCheck, findTheKing } from './checks';
+import { assessCheck, checkCheck, findTheKing, checkMate } from './checks';
 
 class Game extends Component {
   constructor() {
@@ -18,7 +18,7 @@ class Game extends Component {
     const squares = this.state.squares.slice();
     for(let s = 0; s < 64; s++) {
       if (squares[s].classes) {
-        squares[s].classes = null;
+        squares[s].classes = undefined;
       }
     }
     this.setState({ squares });
@@ -80,13 +80,16 @@ class Game extends Component {
                 newSquares[causesCheck].classes = [];
               }
               newSquares[causesCheck].classes.push('causes-check');
+
+              if (checkMate(newSquares, newNextPlayer)) {
+                // displays winner's color + checkmate animation
+                this.props.checkMate(nextPlayer);
+              }
               this.setState({
                 nextPlayer: newNextPlayer,
                 squares: newSquares,
-               });
+              });
             }
-
-            // TODO : vérifier échec et mat
           }
         }
       }
