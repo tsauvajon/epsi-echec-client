@@ -12,6 +12,8 @@ function getDefaultPieces() {
   for (let s = 0; s < squares.length; s += 1) {
     squares[s] = { };
   }
+  // http://stackoverflow.com/questions/5501581/javascript-new-arrayn-and-array-prototype-map-weirdness
+  // const squares = Array(64).fill(undefined).map(() => new Object());
   const w = 'white';
   const b = 'black';
 

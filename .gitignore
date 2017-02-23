@@ -39,4 +39,7 @@ jspm_packages
 # tests
 *.snap
 
+# npm run build
+build/
+
 .eslintcache

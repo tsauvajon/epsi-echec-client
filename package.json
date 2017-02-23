@@ -1,6 +1,7 @@
 {
   "name": "epsi-echec-client",
   "version": "0.1.0",
+  "homepage": "https://tsauvajon.github.io/epsi-echec-client",
   "private": true,
   "devDependencies": {
     "babel": "^6.23.0",
@@ -12,6 +13,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
+    "gh-pages": "^0.12.0",
     "pre-commit": "^1.2.2",
     "react-addons-test-utils": "^15.4.2",
     "react-scripts": "0.9.0"
@@ -26,7 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --force-exit",
     "eject": "react-scripts eject",
-    "lint": "eslint ./ --cache --ignore-pattern .gitignore"
+    "lint": "eslint ./ --cache --ignore-pattern .gitignore",
+    "deploy" : "npm run build&&gh-pages -d build"
   },
   "pre-commit": {
     "run": [
