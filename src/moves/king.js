@@ -46,6 +46,7 @@ function kingMoves(square, squares) {
   }
 
   // bas
+  pos.setI(square);
   if (pos.addY(1)) {
     if (!squares[pos.i].piece) {
       moves.push(pos.i);

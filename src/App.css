@@ -30,15 +30,25 @@
 @keyframes App-logo-spin {
   0% { transform: rotate(0deg); background: grey;}
   50% { transform: rotate(360deg); }
-  80% {  background: white;}
+  80% { background: white;}
   100% { transform: rotate(0deg); background: grey; }
 }
 
 @keyframes App-logo-spin-check {
   0% { transform: rotate(0deg); background: pink;}
   50% { transform: rotate(360deg); }
-  80% {  background: red;}
+  80% { background: red;}
   100% { transform: rotate(0deg); background: pink; }
+}
+
+@keyframes King-check {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(30deg); }
+  30% { transform: rotate(-30deg); }
+  50% { transform: rotate(30deg); }
+  70% { transform: rotate(-30deg); }
+  90% { transform: rotate(30deg); }
+  100% { transform: rotate(0deg); }
 }
 
 .square {
@@ -92,6 +102,7 @@
 
 .is-check {
   background: red;
+  animation: King-check 2.5s linear;
 }
 
 .causes-check {

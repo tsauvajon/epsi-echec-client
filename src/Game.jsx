@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Board from './Board';
-import { getDefaultPieces } from './util';
+import { getDefaultPieces, PieceEnum } from './util';
 import { pieceMoves, move } from './moves';
 import { assessCheck, checkCheck, findTheKing } from './checks';
 
@@ -46,38 +46,47 @@ class Game extends Component {
         } else {
           // jouer coup
           const newSquares = move(squares, selected, i);
+          // maintenant que le coup est joué, on vérifie si un pion se transforme en dame :
+          if ((i < 8 && nextPlayer === 'white') || (i > 55 && nextPlayer === 'black')) {
+            if (newSquares[i].piece === PieceEnum.PAWN) {
+              newSquares[i].piece = PieceEnum.QUEEN;
+            }
+          }
+
           const newNextPlayer = nextPlayer === 'white' ? 'black' : 'white';
           this.cleanClasses();
-          this.setState({
-            nextPlayer: newNextPlayer,
-            squares: newSquares,
-          });
           this.props.nextPlayer();
-
-          // maintenant que le coup est joué, on vérifie si un pion se transforme en dame :
-
 
           // puis si le prochain joueur est en échec
           const newCheck = checkCheck(newSquares, newNextPlayer);
-          if(newCheck.length > 0) {
+          if(newCheck.length === 0) {
+            this.setState({
+              nextPlayer: newNextPlayer,
+              squares: newSquares,
+            });
+          } else {
             // indique l'état d'échec
             this.props.check();
             // trouver le roi du joueur
             const king = findTheKing(newSquares, newNextPlayer);
             // souligner en rouge la / les pièces qui causent l'échec + le roi
-            if (!squares[king].classes) {
-              squares[king].classes = [];
+            if (!newSquares[king].classes) {
+              newSquares[king].classes = [];
             }
-            squares[king].classes.push('is-check')
+            newSquares[king].classes.push('is-check')
             for (let c = 0; c < newCheck.length; c += 1) {
               const causesCheck = newCheck[c];
-              console.log(causesCheck);
-              if (!squares[causesCheck].classes) {
-                squares[causesCheck].classes = [];
+              if (!newSquares[causesCheck].classes) {
+                newSquares[causesCheck].classes = [];
               }
-              squares[causesCheck].classes.push('causes-check');
-              console.log(squares[causesCheck]);
+              newSquares[causesCheck].classes.push('causes-check');
+              this.setState({
+                nextPlayer: newNextPlayer,
+                squares: newSquares,
+               });
             }
+
+            // TODO : vérifier échec et mat
           }
         }
       }
