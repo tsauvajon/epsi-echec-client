@@ -8,7 +8,10 @@ const PieceEnum = Object.freeze({
 });
 
 function getDefaultPieces() {
-  const squares = Array(64).fill(null);
+  const squares = Array(64);
+  for (let s = 0; s < squares.length; s += 1) {
+    squares[s] = { };
+  }
   const w = 'white';
   const b = 'black';
 

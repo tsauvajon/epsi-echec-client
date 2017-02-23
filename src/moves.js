@@ -9,12 +9,12 @@ import kingMoves from './moves/king';
 function move(squares, from, to) {
   const buffer = squares.slice();
   buffer[to] = buffer[from];
-  buffer[from] = null;
+  buffer[from] = {};
   return buffer;
 }
 
 function pieceMoves(square, squares) {
-  if (squares[square]) {
+  if (squares[square].piece) {
     switch (squares[square].piece) {
       case PieceEnum.PAWN:
         return pawnMoves(square, squares);

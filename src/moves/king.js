@@ -8,9 +8,9 @@ function kingMoves(square, squares) {
 
   // bas-droite
   if (pos.addX(1) && pos.addY(1)) {
-    if (!squares[pos.i]) {
+    if (!squares[pos.i].piece) {
       moves.push(pos.i);
-    } else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i].piece && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -18,9 +18,9 @@ function kingMoves(square, squares) {
   // haut-droite
   pos.setI(square);
   if (pos.addX(1) && pos.addY(-1)) {
-    if (!squares[pos.i]) {
+    if (!squares[pos.i].piece) {
       moves.push(pos.i);
-    } else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i].piece && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -28,9 +28,9 @@ function kingMoves(square, squares) {
   // bas-gauche
   pos.setI(square);
   if (pos.addX(-1) && pos.addY(1)) {
-    if (!squares[pos.i]) {
+    if (!squares[pos.i].piece) {
       moves.push(pos.i);
-    } else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i].piece && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -38,18 +38,18 @@ function kingMoves(square, squares) {
   // haut-gauche
   pos.setI(square);
   if (pos.addX(-1) && pos.addY(-1)) {
-    if (!squares[pos.i]) {
+    if (!squares[pos.i].piece) {
       moves.push(pos.i);
-    } else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i].piece && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
 
   // bas
   if (pos.addY(1)) {
-    if (!squares[pos.i]) {
+    if (!squares[pos.i].piece) {
       moves.push(pos.i);
-    } else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i].piece && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -57,9 +57,9 @@ function kingMoves(square, squares) {
   // haut
   pos.setI(square);
   if (pos.addY(-1)) {
-    if (!squares[pos.i]) {
+    if (!squares[pos.i].piece) {
       moves.push(pos.i);
-    } else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i].piece && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -67,9 +67,9 @@ function kingMoves(square, squares) {
   // gauche
   pos.setI(square);
   if (pos.addX(-1)) {
-    if (!squares[pos.i]) {
+    if (!squares[pos.i].piece) {
       moves.push(pos.i);
-    } else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i].piece && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }
@@ -77,9 +77,9 @@ function kingMoves(square, squares) {
   // droite
   pos.setI(square);
   if (pos.addX(1)) {
-    if (!squares[pos.i]) {
+    if (!squares[pos.i].piece) {
       moves.push(pos.i);
-    } else if (squares[pos.i] && squares[pos.i].player !== player) {
+    } else if (squares[pos.i].piece && squares[pos.i].player !== player) {
       eats.push(pos.i);
     }
   }

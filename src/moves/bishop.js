@@ -10,37 +10,37 @@ function bishopMoves(square, squares) {
   //
 
   // bas-droite
-  while (pos.addXY(1, 1) && !squares[pos.i]) {
+  while (pos.addXY(1, 1) && !squares[pos.i].piece) {
     moves.push(pos.i);
   }
-  if (squares[pos.i] && squares[pos.i].player !== player) {
+  if (squares[pos.i].piece && squares[pos.i].player !== player) {
     eats.push(pos.i);
   }
 
   // haut-droite
   pos.setI(square);
-  while (pos.addXY(1, -1) && !squares[pos.i]) {
+  while (pos.addXY(1, -1) && !squares[pos.i].piece) {
     moves.push(pos.i);
   }
-  if (squares[pos.i] && squares[pos.i].player !== player) {
+  if (squares[pos.i].piece && squares[pos.i].player !== player) {
     eats.push(pos.i);
   }
 
   // bas-gauche
   pos.setI(square);
-  while (pos.addXY(-1, 1) && !squares[pos.i]) {
+  while (pos.addXY(-1, 1) && !squares[pos.i].piece) {
     moves.push(pos.i);
   }
-  if (squares[pos.i] && squares[pos.i].player !== player) {
+  if (squares[pos.i].piece && squares[pos.i].player !== player) {
     eats.push(pos.i);
   }
 
   // haut-gauche
   pos.setI(square);
-  while (pos.addXY(-1, -1) && !squares[pos.i]) {
+  while (pos.addXY(-1, -1) && !squares[pos.i].piece) {
     moves.push(pos.i);
   }
-  if (squares[pos.i] && squares[pos.i].player !== player) {
+  if (squares[pos.i].piece && squares[pos.i].player !== player) {
     eats.push(pos.i);
   }
 

@@ -20,7 +20,7 @@ function knightMoves(square, squares) {
       pos.setI(square);
       // +y
       if (pos.addX(x) && pos.addY(y)) {
-        if (!squares[pos.i]) {
+        if (!squares[pos.i].piece) {
           moves.push(pos.i);
         } else if (squares[pos.i].player !== player) {
           eats.push(pos.i);
@@ -30,7 +30,7 @@ function knightMoves(square, squares) {
       pos.setI(square);
       // -y
       if (pos.addX(x) && pos.addY(-y)) {
-        if (!squares[pos.i]) {
+        if (!squares[pos.i].piece) {
           moves.push(pos.i);
         } else if (squares[pos.i].player !== player) {
           eats.push(pos.i);

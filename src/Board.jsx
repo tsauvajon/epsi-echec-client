@@ -6,7 +6,9 @@ class Board extends Component {
     return (
       <Square
         key={`square ${i}`}
-        value={this.props.squares[i]}
+        piece={this.props.squares[i].piece}
+        player={this.props.squares[i].player}
+        classes={this.props.squares[i].classes}
         onClick={() => this.props.onClick(i)}
       />
     );

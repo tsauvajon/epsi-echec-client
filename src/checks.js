@@ -7,7 +7,7 @@ function checkCheck(squares, player) {
   let king = null;
   const eatenBy = [];
   for (let i = 0; i < 64; i += 1) {
-    if (squares[i]) {
+    if (squares[i].piece) {
       if (squares[i].player !== player) {
         // executer pieceEats dessus
         if (pieceMoves(i, squares).eats) {
@@ -25,7 +25,7 @@ function checkCheck(squares, player) {
 }
 
 function assessCheck(squareFrom, squareTo, squares) {
-  if (!squares[squareFrom]) {
+  if (!squares[squareFrom].piece) {
     throw new Error("invalid 'from' square");
   }
   const player = squares[squareFrom].player;

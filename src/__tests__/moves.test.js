@@ -9,8 +9,7 @@ function testMove(from, to) {
 }
 
 it('moves pawns', () => {
-  const pawn = 53;
-  const moves = pieceMoves(pawn, defaultBoard);
+  const moves = pieceMoves(53, defaultBoard);
   expect(moves).toMatchSnapshot();
 });
 

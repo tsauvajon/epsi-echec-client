@@ -14,55 +14,62 @@ import queenWhite from './pieces/queen-white.svg';
 import rookBlack from './pieces/rook-black.svg';
 import rookWhite from './pieces/rook-white.svg';
 
-function valueToImg(value) {
-  if (!value) {
-    return null;
-  }
-  let piece;
-  switch (value.piece) {
+function valueToImg(piece, player) {
+  if (!piece || !player) return null;
+  let img;
+  switch (piece) {
     case PieceEnum.KING:
-      piece = value.player === 'white' ? kingWhite : kingBlack;
+      img = player === 'white' ? kingWhite : kingBlack;
       break;
     case PieceEnum.QUEEN:
-      piece = value.player === 'white' ? queenWhite : queenBlack;
+      img = player === 'white' ? queenWhite : queenBlack;
       break;
     case PieceEnum.ROOK:
-      piece = value.player === 'white' ? rookWhite : rookBlack;
+      img = player === 'white' ? rookWhite : rookBlack;
       break;
     case PieceEnum.BISHOP:
-      piece = value.player === 'white' ? bishopWhite : bishopBlack;
+      img = player === 'white' ? bishopWhite : bishopBlack;
       break;
     case PieceEnum.KNIGHT:
-      piece = value.player === 'white' ? knightWhite : knightBlack;
+      img = player === 'white' ? knightWhite : knightBlack;
       break;
     case PieceEnum.PAWN:
-      piece = value.player === 'white' ? pawnWhite : pawnBlack;
+      img = player === 'white' ? pawnWhite : pawnBlack;
       break;
     default:
-      return null;
+      img = null;
   }
-  const classes = 'chessman';
-  if (value.classes) {
-    classes.concat(` ${value.classes.join(' ')}`);
+  if (img) {
+    return (
+      <img src={img} className="chessman" alt={`${player} ${piece}`} />
+    );
   }
-  return (
-    <img src={piece} className={classes} alt="" />
-  );
+  return null;
+}
+
+function getClassNames(classes) {
+  let classNames = 'square';
+  if (classes) {
+    // console.log(classes);
+    for (let c = 0; c < classes.length; c += 1) {
+      classNames = classNames.concat(' ', classes[c]);
+    }
+  }
+  return classNames;
 }
 
 function Square(props) {
   return (
-    <button className="square" onClick={() => props.onClick()}>
-      {valueToImg(props.value)}
+    <button className={getClassNames(props.classes)} onClick={() => props.onClick()}>
+      {valueToImg(props.piece, props.player)}
     </button>
   );
 }
 
 Square.propTypes = {
-  value: React.PropTypes.objectOf(
-    React.PropTypes.string,
-    React.PropTypes.string,
-    React.PropTypes.arrayOf(React.PropTypes.string)),
+  classes: React.PropTypes.arrayOf(React.PropTypes.string),
+  piece: React.PropTypes.string,
+  player: React.PropTypes.string,
   onClick: React.PropTypes.func,
 };
 
