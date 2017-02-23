@@ -1,9 +1,12 @@
 # epsi-echec-client
 
-- récupérer les trucs depuis git
+## A faire 1 fois :
+- cloner le repértoire
 - installer node LTS si c'est pas encore fait
 
 - dans le terminal, à la racine du projet :
+## npm
+
 Installer les dépendences
 ``` bash
   npm install
@@ -29,10 +32,11 @@ Pour run :
   npm start
 ```
 
+## git
 Pour récupérer les changements depuis git
 
 ``` bash
-  npm pull
+  git pull
 ```
 
 Pour commit :
