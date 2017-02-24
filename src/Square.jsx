@@ -47,8 +47,8 @@ function valueToImg(piece, player) {
   return null;
 }
 
-function getClassNames(classes) {
-  let classNames = 'square';
+function getClassNames(classes, color) {
+  let classNames = `square ${color}`;
   if (classes) {
     for (let c = 0; c < classes.length; c += 1) {
       classNames = classNames.concat(' ', classes[c]);
@@ -59,7 +59,7 @@ function getClassNames(classes) {
 
 function Square(props) {
   return (
-    <button className={getClassNames(props.classes)} onClick={() => props.onClick()}>
+    <button className={getClassNames(props.classes, props.color)} onClick={() => props.onClick()}>
       {valueToImg(props.piece, props.player)}
     </button>
   );
@@ -69,6 +69,7 @@ Square.propTypes = {
   classes: React.PropTypes.arrayOf(React.PropTypes.string),
   piece: React.PropTypes.string,
   player: React.PropTypes.string,
+  color: React.PropTypes.string,
   onClick: React.PropTypes.func,
 };
 

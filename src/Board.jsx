@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import Square from './Square';
+import { getX, getY } from './util';
 
 class Board extends Component {
+  getColor(i) {
+    if ((getX(i) % 2) + (getY(i) % 2) === 1) {
+      return 'alt-square';
+    }
+    return 'regular-square';
+  }
   renderSquare(i) {
     return (
       <Square
         key={`square ${i}`}
+        color={this.getColor(i)}
         piece={this.props.squares[i].piece}
         player={this.props.squares[i].player}
         classes={this.props.squares[i].classes}

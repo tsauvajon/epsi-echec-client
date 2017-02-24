@@ -12,6 +12,8 @@ class Game extends Component {
       squares,
       nextPlayer: 'white',
       selected: null,
+      whiteCanCastle: true,
+      blackCanCastle: true,
     };
   }
   cleanClasses() {
@@ -30,7 +32,8 @@ class Game extends Component {
     this.cleanClasses();
 
     // jouer déplacement, si selected === une piece du nextPlayer, et que squares[i] est un move / eat autorisé
-    if(selected && squares[selected] && squares[selected].player === nextPlayer) {
+    //
+    if((selected || selected === 0) && squares[selected].player && squares[selected].player === nextPlayer) {
       const moves = pieceMoves(selected, squares);
       if (moves.moves.includes(i) || moves.eats.includes(i)) {
         // vérifier que le joueur ne se mettrait pas en echec
