@@ -47,7 +47,7 @@ Pour récupérer les changements depuis git
 Pour commit :
 
 ``` bash
-  git add ./
+  git add -A
   git commit -m "description du commit ..."
   git push
 ```
