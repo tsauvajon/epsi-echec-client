@@ -48,7 +48,7 @@ Pour commit :
 
 ``` bash
   git add -A
-  git commit -m "description du commit ..."
+  git commit -m "[description du commit ...]"
   git push
 ```
 Commit va lancer les pre-commit hooks : test et lint.
