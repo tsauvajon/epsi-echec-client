@@ -1,8 +1,10 @@
 # epsi-echec-client
+[![Build Status](https://travis-ci.org/tsauvajon/epsi-echec-client.svg?branch=master)](https://travis-ci.org/tsauvajon/epsi-echec-client)
 
 ## A faire 1 fois :
 - cloner le repértoire
 - installer node LTS si c'est pas encore fait
+- *installer yarn (facultatif)*
 
 
 dans le terminal, à la racine du projet :
@@ -11,6 +13,8 @@ dans le terminal, à la racine du projet :
 Installer les dépendences
 ``` bash
   npm install
+  *ou*
+  yarn
 ```
 
 Pour tester :
@@ -47,4 +51,5 @@ Pour commit :
   git commit -m "description du commit ..."
   git push
 ```
-Si le lint ne passe pas, corriger les erreurs puis re-commit
+Commit va lancer les pre-commit hooks : test et lint.
+Si le lint / test ne passe pas, corriger les erreurs puis re-commit
