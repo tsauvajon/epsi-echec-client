@@ -7,39 +7,57 @@ const PieceEnum = Object.freeze({
   PAWN: 'pawn',
 });
 
+// crée le board par défaut (placement initial)
 function getDefaultPieces() {
-  const squares = Array(64);
-  for (let s = 0; s < squares.length; s += 1) {
-    squares[s] = { };
-  }
-  // http://stackoverflow.com/questions/5501581/javascript-new-arrayn-and-array-prototype-map-weirdness
-  // const squares = Array(64).fill(undefined).map(() => new Object());
-  const w = 'white';
-  const b = 'black';
+  const squares = [...Array(64)].map((s, i) => {
+    const sq = { };
 
-  squares[56] = { piece: PieceEnum.ROOK, player: w };
-  squares[63] = { piece: PieceEnum.ROOK, player: w };
-  squares[57] = { piece: PieceEnum.KNIGHT, player: w };
-  squares[62] = { piece: PieceEnum.KNIGHT, player: w };
-  squares[58] = { piece: PieceEnum.BISHOP, player: w };
-  squares[61] = { piece: PieceEnum.BISHOP, player: w };
-  squares[59] = { piece: PieceEnum.QUEEN, player: w };
-  squares[60] = { piece: PieceEnum.KING, player: w };
-  for (let i = 48; i < 56; i += 1) {
-    squares[i] = { piece: PieceEnum.PAWN, player: w };
-  }
+    // on définit la couleur de la pièce
+    if (i < 16) {
+      sq.player = 'black';
+    } else if (i > 63 - 16) {
+      sq.player = 'white';
+    }
 
-  squares[0] = { piece: PieceEnum.ROOK, player: b };
-  squares[7] = { piece: PieceEnum.ROOK, player: b };
-  squares[1] = { piece: PieceEnum.KNIGHT, player: b };
-  squares[6] = { piece: PieceEnum.KNIGHT, player: b };
-  squares[2] = { piece: PieceEnum.BISHOP, player: b };
-  squares[5] = { piece: PieceEnum.BISHOP, player: b };
-  squares[3] = { piece: PieceEnum.QUEEN, player: b };
-  squares[4] = { piece: PieceEnum.KING, player: b };
-  for (let i = 8; i < 16; i += 1) {
-    squares[i] = { piece: PieceEnum.PAWN, player: b };
-  }
+    // on définit le type de la pièce (grâce à la symétrie)
+    // x = pièce haut gauche; 7-x = symétrie horizontale; 63-x = symétrie verticale
+    switch (i) {
+      case 0:
+      case 7 - 0:
+      case 63 - 0:
+      case (63 - 7) + 0:
+        sq.piece = PieceEnum.ROOK;
+        break;
+      case 1:
+      case 7 - 1:
+      case 63 - 1:
+      case (63 - 7) + 1:
+        sq.piece = PieceEnum.KNIGHT;
+        break;
+      case 2:
+      case 7 - 2:
+      case 63 - 2:
+      case (63 - 7) + 2:
+        sq.piece = PieceEnum.BISHOP;
+        break;
+      case 3:
+      case 59:
+        sq.piece = PieceEnum.QUEEN;
+        break;
+      case 4:
+      case 60:
+        sq.piece = PieceEnum.KING;
+        break;
+      default:
+        break;
+    }
+
+    // pions : 8 -> 15 et symétrie
+    if ((i >= 8 && i <= 15) || (i >= 63 - 15 && i <= 63 - 8)) {
+      sq.piece = PieceEnum.PAWN;
+    }
+    return sq;
+  });
 
   return squares;
 }
