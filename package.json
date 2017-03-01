@@ -30,7 +30,8 @@
     "test-once": "set CI=true && react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint ./ --cache --ignore-pattern .gitignore",
-    "deploy" : "npm run build && gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build",
+    "deploy-ci": "./deploy-ghpages.sh"
   },
   "pre-commit": {
     "run": [
