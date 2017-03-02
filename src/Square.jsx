@@ -14,6 +14,7 @@ import queenWhite from './pieces/queen-white.svg';
 import rookBlack from './pieces/rook-black.svg';
 import rookWhite from './pieces/rook-white.svg';
 
+// possible de refactoriser ? => ./pieces/{piece}-{player}.svg
 function valueToImg(piece, player) {
   if (!piece || !player) return null;
   let img;
