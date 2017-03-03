@@ -9,7 +9,7 @@ const PieceEnum = Object.freeze({
 
 // crée le board par défaut (placement initial)
 function getDefaultPieces() {
-  const squares = [...Array(64)].map((s, i) => {
+  const defineSquare = function defineSquare(s, i) {
     const sq = { };
 
     // on définit la couleur de la pièce
@@ -57,8 +57,11 @@ function getDefaultPieces() {
       sq.piece = PieceEnum.PAWN;
     }
     return sq;
-  });
+  };
 
+  // on déclare un Array de 64 élements
+  // puis on applique la fonction de définition sur chacun des squares
+  const squares = [...Array(64)].map(defineSquare);
   return squares;
 }
 
