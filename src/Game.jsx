@@ -16,13 +16,13 @@ class Game extends Component {
       blackCanCastle: true,
     };
   }
+  // vide le .classes de tous les squares
   cleanClasses() {
-    const squares = this.state.squares.slice();
-    for(let s = 0; s < 64; s++) {
-      if (squares[s].classes) {
-        squares[s].classes = undefined;
-      }
-    }
+    const squares = this.state.squares.slice().map(s => {
+      const sq = s;
+      sq.classes = undefined;
+      return sq;
+    });
     this.setState({ squares });
   }
   handleClick(i) {
@@ -32,7 +32,6 @@ class Game extends Component {
     this.cleanClasses();
 
     // jouer déplacement, si selected === une piece du nextPlayer, et que squares[i] est un move / eat autorisé
-    //
     if((selected || selected === 0) && squares[selected].player && squares[selected].player === nextPlayer) {
       const moves = pieceMoves(selected, squares);
       if (moves.moves.includes(i) || moves.eats.includes(i)) {
