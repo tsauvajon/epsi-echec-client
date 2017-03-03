@@ -8,6 +8,9 @@ const PieceEnum = Object.freeze({
 });
 
 // crée le board par défaut (placement initial)
+/*
+  TODO : refactor avec array.filter() ??; ex:  [2, 4, 6].filter(gt4).map(double); [8, 12]
+*/
 function getDefaultPieces() {
   // définit la couleur de la pièce
   const definePlayer = function definePlayer(i) {
@@ -21,43 +24,41 @@ function getDefaultPieces() {
   };
 
   // on définit le type de la pièce (grâce à la symétrie)
-  // x = pièce haut gauche; 7-x = symétrie horizontale; 63-x = symétrie verticale
-  /*
-  TODO : refactor => faire le même traitement avec i et 63-i,
-    ça élimine la moitié des tests (attention à king / queen qui sont pas symétriques)
-    ou alors faire symétrie horizontale au lieu de symétrie centrale ?
-  */
+  // 63-x = symétrie centrale
+  // TODO : refactor : au lieu de symétrie centrale on fait une symétrie horizontale
   const definePiece = function definePiece(i) {
-    // pions : 8 -> 15 et symétrie
-    if ((i >= 8 && i <= 15) || (63 - i >= 8 && 63 - i <= 15)) {
-      return PieceEnum.PAWN;
-    }
-
+    // les rois et dames ne sont pas symétriques
     switch (i) {
-      case 0:
-      case 7 - 0:
-      case 63 - 0:
-      case (63 - 7) + 0:
-        return PieceEnum.ROOK;
-      case 1:
-      case 7 - 1:
-      case 63 - 1:
-      case (63 - 7) + 1:
-        return PieceEnum.KNIGHT;
-      case 2:
-      case 7 - 2:
-      case 63 - 2:
-      case (63 - 7) + 2:
-        return PieceEnum.BISHOP;
       case 3:
       case 59:
         return PieceEnum.QUEEN;
       case 4:
       case 60:
         return PieceEnum.KING;
-      default:
-        return undefined;
+      default: break;
     }
+
+    const half = function half(j) {
+      if (j >= 8 && j <= 15) {
+        return PieceEnum.PAWN;
+      }
+
+      switch (j) {
+        case 0:
+        case 7 - 0:
+          return PieceEnum.ROOK;
+        case 1:
+        case 7 - 1:
+          return PieceEnum.KNIGHT;
+        case 2:
+        case 7 - 2:
+          return PieceEnum.BISHOP;
+        default:
+          return undefined;
+      }
+    };
+
+    return half(i) || half(63 - i) || undefined;
   };
 
   // on déclare un Array de 64 élements
