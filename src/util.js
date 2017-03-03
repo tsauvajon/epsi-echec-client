@@ -9,61 +9,58 @@ const PieceEnum = Object.freeze({
 
 // crée le board par défaut (placement initial)
 function getDefaultPieces() {
-  // fonction qui va définir un square en fonction de sa position dans l'échiquier (i)
-  const defineSquare = function defineSquare(_, i) {
-    const sq = { };
-
-    // on définit la couleur de la pièce
+  // définit la couleur de la pièce
+  const definePlayer = function definePlayer(i) {
     if (i < 16) {
-      sq.player = 'black';
+      return 'black';
     } else if (i > 63 - 16) {
-      sq.player = 'white';
+      return ('white');
     }
 
-    // on définit le type de la pièce (grâce à la symétrie)
-    // x = pièce haut gauche; 7-x = symétrie horizontale; 63-x = symétrie verticale
+    return undefined;
+  };
+
+  // on définit le type de la pièce (grâce à la symétrie)
+  // x = pièce haut gauche; 7-x = symétrie horizontale; 63-x = symétrie verticale
+  const definePiece = function definePiece(i) {
+    // pions : 8 -> 15 et symétrie
+    if ((i >= 8 && i <= 15) || (i >= 63 - 15 && i <= 63 - 8)) {
+      return PieceEnum.PAWN;
+    }
+
     switch (i) {
       case 0:
       case 7 - 0:
       case 63 - 0:
       case (63 - 7) + 0:
-        sq.piece = PieceEnum.ROOK;
-        break;
+        return PieceEnum.ROOK;
       case 1:
       case 7 - 1:
       case 63 - 1:
       case (63 - 7) + 1:
-        sq.piece = PieceEnum.KNIGHT;
-        break;
+        return PieceEnum.KNIGHT;
       case 2:
       case 7 - 2:
       case 63 - 2:
       case (63 - 7) + 2:
-        sq.piece = PieceEnum.BISHOP;
-        break;
+        return PieceEnum.BISHOP;
       case 3:
       case 59:
-        sq.piece = PieceEnum.QUEEN;
-        break;
+        return PieceEnum.QUEEN;
       case 4:
       case 60:
-        sq.piece = PieceEnum.KING;
-        break;
+        return PieceEnum.KING;
       default:
-        break;
+        return undefined;
     }
-
-    // pions : 8 -> 15 et symétrie
-    if ((i >= 8 && i <= 15) || (i >= 63 - 15 && i <= 63 - 8)) {
-      sq.piece = PieceEnum.PAWN;
-    }
-    return sq;
   };
 
   // on déclare un Array de 64 élements
-  // puis on applique la fonction de définition sur chacun des squares
-  const squares = [...Array(64)].map(defineSquare);
-  return squares;
+  // puis on applique les fonctions de définition sur chacun des squares
+  return [...Array(64)].map((_, i) => ({
+    player: definePlayer(i),
+    piece: definePiece(i),
+  }));
 }
 
 function getX(i) {
