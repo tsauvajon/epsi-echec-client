@@ -22,9 +22,14 @@ function getDefaultPieces() {
 
   // on définit le type de la pièce (grâce à la symétrie)
   // x = pièce haut gauche; 7-x = symétrie horizontale; 63-x = symétrie verticale
+  /*
+  TODO : refactor => faire le même traitement avec i et 63-i,
+    ça élimine la moitié des tests (attention à king / queen qui sont pas symétriques)
+    ou alors faire symétrie horizontale au lieu de symétrie centrale ?
+  */
   const definePiece = function definePiece(i) {
     // pions : 8 -> 15 et symétrie
-    if ((i >= 8 && i <= 15) || (i >= 63 - 15 && i <= 63 - 8)) {
+    if ((i >= 8 && i <= 15) || (63 - i >= 8 && 63 - i <= 15)) {
       return PieceEnum.PAWN;
     }
 
