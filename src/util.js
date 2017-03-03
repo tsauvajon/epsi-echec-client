@@ -9,7 +9,8 @@ const PieceEnum = Object.freeze({
 
 // crée le board par défaut (placement initial)
 function getDefaultPieces() {
-  const defineSquare = function defineSquare(s, i) {
+  // fonction qui va définir un square en fonction de sa position dans l'échiquier (i)
+  const defineSquare = function defineSquare(_, i) {
     const sq = { };
 
     // on définit la couleur de la pièce
