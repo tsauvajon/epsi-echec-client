@@ -5,18 +5,21 @@ env:
     global:
       - CI=true
       - NODE_ENV=production
-      - GH_REF: github.com/tsauvajon/epsi-echec-client
+      - GH_REF: github.com/tsauvajon/epsi-echec-client.git
       - GH_TOKEN: FS+qk9dU4Xc1BTRToaqJCybtlkF7w/fxrZjI8AxsKm2a3zC6wJsoImKEeqjAvEEDcArGNZZf5zKD7TIjj3yxrD27eDVNSdv+7xACtkdWvUbaTxHCRRURhq0mYTEpkFF1cuL88z9fYegD9lv68hUdiPEAHsX7hUWeitgVIxm7MQXlrHDdEEjuPRBnHO/FpTnseifrwWtRpwD8bFJJ7UwJ1L4yoVa9Y41psqjXq/J1LJ0AZsA0d8b7EdybadMsKroccibPdIy9/RJOxOLV9h6gRAxd4DxD6rFffrBqZjul5hoY3rPCZ2fHeMHkO8JaNgK7aRicuevRc6ZZxKV5u1SvKml0PW624UWisIOX3iVN77rCxCVlfd9T3jiwMxuBWH5GmoRSRcn7JmyzX9ccIWXh0sJD5j4I6Q6K9H8UUbng7I+2HFPjkemQ9MN88St+cOg0NOjgazQgre0rR7XeJsGa1t5DYoRn9X0x9RARWM835QKVRB6yiBD3oWZ9Aw8218frFqqdnIP6ifSKp3MQnv3PCpH5KPVep3zrpro8RIMU3SVr1ZmYHYzuPun6VmeN2OY54UY2vL45vNoUPm1pTAxJw+8HneDoxZRQ7DssMCTpMND7J07C5XYi4q1s9+0UMMz9kuc8gd75/2gk5H8/Ne/U4zyQb1AdTZLt/DdeDNxkp28=
       - secure: FS+qk9dU4Xc1BTRToaqJCybtlkF7w/fxrZjI8AxsKm2a3zC6wJsoImKEeqjAvEEDcArGNZZf5zKD7TIjj3yxrD27eDVNSdv+7xACtkdWvUbaTxHCRRURhq0mYTEpkFF1cuL88z9fYegD9lv68hUdiPEAHsX7hUWeitgVIxm7MQXlrHDdEEjuPRBnHO/FpTnseifrwWtRpwD8bFJJ7UwJ1L4yoVa9Y41psqjXq/J1LJ0AZsA0d8b7EdybadMsKroccibPdIy9/RJOxOLV9h6gRAxd4DxD6rFffrBqZjul5hoY3rPCZ2fHeMHkO8JaNgK7aRicuevRc6ZZxKV5u1SvKml0PW624UWisIOX3iVN77rCxCVlfd9T3jiwMxuBWH5GmoRSRcn7JmyzX9ccIWXh0sJD5j4I6Q6K9H8UUbng7I+2HFPjkemQ9MN88St+cOg0NOjgazQgre0rR7XeJsGa1t5DYoRn9X0x9RARWM835QKVRB6yiBD3oWZ9Aw8218frFqqdnIP6ifSKp3MQnv3PCpH5KPVep3zrpro8RIMU3SVr1ZmYHYzuPun6VmeN2OY54UY2vL45vNoUPm1pTAxJw+8HneDoxZRQ7DssMCTpMND7J07C5XYi4q1s9+0UMMz9kuc8gd75/2gk5H8/Ne/U4zyQb1AdTZLt/DdeDNxkp28=
-script:
+      - GIT_DEPLOY_REPO=https://$GH_TOKEN@$GH_REF
   - npm test
   - npm run lint
-  - npm run deploy-ci
+  # - npm run deploy-ci
 
-# deploy:
-#   skip_cleanup: true
-#   provider: script
-#   script: ./scripts/deploy.sh
-#   on:
-#     branch: master
-#     node: '6'
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: ./scripts/deploy.sh
+  on:
+    branch: master
+    node: '6'
+
+
+# -----BEGIN PUBLIC KEY----- MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAwXBfz306P8xCILiYtwFF PoSH3eslAUP8JyEE4MxW6CNQFyEQa6IPvR7onot49ZiZGu3o4nB9MXpy6yBt4xp8 7sWTBJbKzxzUqKLL8OlMKicZkoZ17G2WTBpTNXO4Vn/+r17wwJT0RND9KfLZIT3k Haki3f64jTqEVruJLrWjGBLWGPb9MdHaxgUFjZBsaKU/LzSgP+1DckXa/H150DdR af0OkhHaLlkq1T9QqMrUqCwtTbzZa+xC1dEfna9wGnHu7jzTgSiccCAjJwgJt25e mIvGtmieL9nVUiIl7XviRWsniC1aNFeAKZHRhVLiK5Ioh+K56PP94eXIYrSV3Gxg P+xuzYwXQpMsFLDsYO+VRmPvHuMnONRe/7JzVeRUUJ2lOgSanASZtexPqHw9d9xI oTADMR3B64pJUbbbkrzihTLPSEKfkI2sgrqBx9ZDbXzBRHQ0ERgnyxQXX2qutj+K MNGeP1eyZDwhiSyGsMPxuZw7XX3yU6rtHNuMb48SREqBGDByySDDGkXs79f+eati I6OtZYzor0lQohyt8lVXsqkUnUhlzNc7Wbhp0TFQoKxqox5RvjlpGIF9t/Y6qNgB eRTGenhdZdMVjulv9wZOoHi1DzeZjUpbR9Ds6+9tNl8BBqUjEM31Jz7kauOI0RzT XcUznA3IQwmgXS90bLnRsiMCAwEAAQ== -----END PUBLIC KEY-----
