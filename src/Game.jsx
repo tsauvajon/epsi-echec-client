@@ -18,11 +18,7 @@ class Game extends Component {
   }
   // vide le .classes de tous les squares
   cleanClasses() {
-    const squares = this.state.squares.slice().map(s => {
-      const sq = s;
-      sq.classes = undefined;
-      return sq;
-    });
+    const squares = this.state.squares.slice().map(s => delete s.classes);
     this.setState({ squares });
   }
   handleClick(i) {
