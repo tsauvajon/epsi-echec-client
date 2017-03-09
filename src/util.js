@@ -16,7 +16,7 @@ function getDefaultPieces() {
   const definePlayer = function definePlayer(i) {
     if (i < 16) {
       return 'black';
-    } else if (i > 63 - 16) {
+    } else if (63 - i < 16) {
       return ('white');
     }
 
@@ -25,7 +25,6 @@ function getDefaultPieces() {
 
   // on définit le type de la pièce (grâce à la symétrie)
   // 63-x = symétrie centrale
-  // TODO : refactor : au lieu de symétrie centrale on fait une symétrie horizontale
   const definePiece = function definePiece(i) {
     // les rois et dames ne sont pas symétriques
     switch (i) {
@@ -58,7 +57,9 @@ function getDefaultPieces() {
       }
     };
 
-    return half(i) || half(63 - i) || undefined;
+    if (i < 16) return half(i);
+    else if (63 - i < 16) return half(63 - i);
+    return undefined;
   };
 
   // on déclare un Array de 64 élements
