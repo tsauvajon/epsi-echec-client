@@ -68,18 +68,12 @@ const getDefaultPieces = () => {
     player: definePlayer(i),
     piece: definePiece(i),
   }));
-}
+};
 
-const getX = (i) => {
-  return i % 8;
-}
+const getX = i => i % 8;
 
-const getY = (i) => {
-  return parseInt(i / 8, 10);
-}
+const getY = i => parseInt(i / 8, 10);
 
-const getId = (x, y) => {
-  return (y * 8) + x;
-}
+const getId = (x, y) => (y * 8) + x;
 
 export { PieceEnum, getX, getY, getId, getDefaultPieces };
