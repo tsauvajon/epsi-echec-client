@@ -154,7 +154,6 @@ class Game extends Component {
     }
   }
   render() {
-    console.log(this.state.castling);
     return (
       <div className="game" key="game">
         <div className="game-board" key="game-board">
