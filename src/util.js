@@ -11,9 +11,9 @@ const PieceEnum = Object.freeze({
 /*
   TODO : refactor avec array.filter() ??; ex:  [2, 4, 6].filter(gt4).map(double); [8, 12]
 */
-function getDefaultPieces() {
+const getDefaultPieces = () => {
   // définit la couleur de la pièce
-  const definePlayer = function definePlayer(i) {
+  const definePlayer = (i) => {
     if (i < 16) {
       return 'black';
     } else if (63 - i < 16) {
@@ -25,7 +25,7 @@ function getDefaultPieces() {
 
   // on définit le type de la pièce (grâce à la symétrie)
   // 63-x = symétrie centrale
-  const definePiece = function definePiece(i) {
+  const definePiece = (i) => {
     // les rois et dames ne sont pas symétriques
     switch (i) {
       case 3:
@@ -37,7 +37,7 @@ function getDefaultPieces() {
       default: break;
     }
 
-    const half = function half(j) {
+    const half = (j) => {
       if (j >= 8 && j <= 15) {
         return PieceEnum.PAWN;
       }
@@ -70,15 +70,15 @@ function getDefaultPieces() {
   }));
 }
 
-function getX(i) {
+const getX = (i) => {
   return i % 8;
 }
 
-function getY(i) {
+const getY = (i) => {
   return parseInt(i / 8, 10);
 }
 
-function getId(x, y) {
+const getId = (x, y) => {
   return (y * 8) + x;
 }
 
