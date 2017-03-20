@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux'
-import squares from './squares'
+import { combineReducers } from 'redux';
+import squares from './squares';
 // import visibilityFilter from './visibilityFilter'
 
 const checksApp = combineReducers({
@@ -7,4 +7,4 @@ const checksApp = combineReducers({
   // visibilityFilter
 });
 
-export default checksApp
+export default checksApp;

@@ -17,12 +17,13 @@ class Game extends Component {
   }
   // vide le .classes de tous les squares
   cleanClasses() {
-    const squares = this.state.squares.slice().map(
+    const squares = this.state.squares.map(
       (s) => {
-        const t = s.slice();
-        delete t.classes;
-        return t;
-      });
+        const t = s;
+        t.classes = undefined;
+        return s;
+      },
+    );
     this.setState({ squares });
   }
   // regarde si le roque est toujours possible;
