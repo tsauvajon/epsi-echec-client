@@ -1,5 +1,5 @@
-import Position from '../Position';
-import { getX, getY, getId } from '../util';
+import Position from '../utility/Position';
+import { getX, getY, getId } from '../utility/util';
 
 function pawnDeplacements(square, squares, player) {
   const moves = [];

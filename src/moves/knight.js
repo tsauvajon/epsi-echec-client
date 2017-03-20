@@ -1,4 +1,4 @@
-import Position from '../Position';
+import Position from '../utility/Position';
 
 function knightMoves(square, squares) {
   const player = squares[square].player;

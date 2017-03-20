@@ -1,5 +1,5 @@
-import { pieceMoves, move } from '../moves';
-import { getDefaultPieces } from '../util';
+import { pieceMoves, move } from '../moves/index';
+import { getDefaultPieces } from '../utility/util';
 
 const defaultBoard = getDefaultPieces();
 

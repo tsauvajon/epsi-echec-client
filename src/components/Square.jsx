@@ -1,18 +1,18 @@
 import React from 'react';
-import { PieceEnum } from './util';
+import { PieceEnum } from '../utility/util';
 // images
-import bishopBlack from './pieces/bishop-black.svg';
-import bishopWhite from './pieces/bishop-white.svg';
-import kingBlack from './pieces/king-black.svg';
-import kingWhite from './pieces/king-white.svg';
-import knightBlack from './pieces/knight-black.svg';
-import knightWhite from './pieces/knight-white.svg';
-import pawnBlack from './pieces/pawn-black.svg';
-import pawnWhite from './pieces/pawn-white.svg';
-import queenBlack from './pieces/queen-black.svg';
-import queenWhite from './pieces/queen-white.svg';
-import rookBlack from './pieces/rook-black.svg';
-import rookWhite from './pieces/rook-white.svg';
+import bishopBlack from '../pieces/bishop-black.svg';
+import bishopWhite from '../pieces/bishop-white.svg';
+import kingBlack from '../pieces/king-black.svg';
+import kingWhite from '../pieces/king-white.svg';
+import knightBlack from '../pieces/knight-black.svg';
+import knightWhite from '../pieces/knight-white.svg';
+import pawnBlack from '../pieces/pawn-black.svg';
+import pawnWhite from '../pieces/pawn-white.svg';
+import queenBlack from '../pieces/queen-black.svg';
+import queenWhite from '../pieces/queen-white.svg';
+import rookBlack from '../pieces/rook-black.svg';
+import rookWhite from '../pieces/rook-white.svg';
 
 // possible de refactoriser ? => ./pieces/{piece}-{player}.svg
 function valueToImg(piece, player) {

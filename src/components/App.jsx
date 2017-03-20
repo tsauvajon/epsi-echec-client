@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Game from './Game';
 
-import black from './pieces/king-black.svg';
-import white from './pieces/king-white.svg';
-import './App.css';
+import black from '../pieces/king-black.svg';
+import white from '../pieces/king-white.svg';
+import '../style/App.css';
 
 class App extends Component {
   constructor() {

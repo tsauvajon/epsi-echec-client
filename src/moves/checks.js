@@ -1,5 +1,5 @@
-import { PieceEnum } from './util';
-import { pieceMoves, move } from './moves';
+import { PieceEnum } from '../utility/util';
+import { pieceMoves, move } from './index';
 
 function findTheKing(squares, player) {
   let king = null;

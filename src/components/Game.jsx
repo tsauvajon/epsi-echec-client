@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Board from './Board';
-import { getDefaultPieces, PieceEnum } from './util';
-import { pieceMoves, move } from './moves';
-import { assessCheck, checkCheck, findTheKing, checkMate } from './checks';
+import { getDefaultPieces, PieceEnum } from '../utility/util';
+import { pieceMoves, move } from '../moves/index';
+import { assessCheck, checkCheck, findTheKing, checkMate } from '../moves/checks';
 
 class Game extends Component {
   constructor() {
@@ -17,10 +17,12 @@ class Game extends Component {
   }
   // vide le .classes de tous les squares
   cleanClasses() {
-    const squares = this.state.squares.slice().map(s => {
-       delete s.classes;
-       return s;
-     });
+    const squares = this.state.squares.slice().map(
+      (s) => {
+        const t = s.slice();
+        delete t.classes;
+        return t;
+      });
     this.setState({ squares });
   }
   // regarde si le roque est toujours possible;
@@ -29,21 +31,21 @@ class Game extends Component {
     let castling = this.state.castling.slice();
     if (!castling.length) return undefined;
     // black king bouge ou est échec : on supprime ses 2 possiblités de roque
-    if (i === 4){
+    if (i === 4) {
       // on vide 0 et 7 du tableau
       castling = castling
         .filter(item => item !== 0)
         .filter(item => item !== 7);
-    }
-    // white king : on supprime ses 2 possiblités de roque
-    else if (i === 60) {
+    } else if (i === 60) {
+      // white king : on supprime ses 2 possiblités de roque
       castling = castling
         .filter(item => item !== 56)
         .filter(item => item !== 63);
     } else {
-      castling = castling.filter(item => item !== i)
+      castling = castling.filter(item => item !== i);
     }
     this.setState({ castling });
+    return castling;
   }
   handleClick(i) {
     const squares = this.state.squares.slice();
@@ -53,14 +55,14 @@ class Game extends Component {
 
     // jouer déplacement, si selected === une piece du nextPlayer,
     // et que squares[i] est un move / eat autorisé
-    if((selected || selected === 0)
+    if ((selected || selected === 0)
       && squares[selected].player
       && squares[selected].player === nextPlayer) {
       const moves = pieceMoves(selected, squares);
       if (moves.moves.includes(i) || moves.eats.includes(i)) {
         // vérifier que le joueur ne se mettrait pas en echec
         const checkFrom = assessCheck(squares, selected, i);
-        if (checkFrom.length > 0){
+        if (checkFrom.length > 0) {
           for (let c = 0; c < checkFrom.length; c += 1) {
             const causesCheck = checkFrom[c];
             if (!squares[causesCheck].classes) {
@@ -87,7 +89,7 @@ class Game extends Component {
           // On vérifie si le prochain joueur est en échec
           const newCheck = checkCheck(newSquares, newNextPlayer);
           // pas échec, terminé
-          if(newCheck.length === 0) {
+          if (newCheck.length === 0) {
             // échec = roque interdit
             this.setState({
               nextPlayer: newNextPlayer,
@@ -104,7 +106,7 @@ class Game extends Component {
             if (!newSquares[king].classes) {
               newSquares[king].classes = [];
             }
-            newSquares[king].classes.push('is-check')
+            newSquares[king].classes.push('is-check');
             for (let c = 0; c < newCheck.length; c += 1) {
               const causesCheck = newCheck[c];
               if (!newSquares[causesCheck].classes) {
@@ -140,9 +142,9 @@ class Game extends Component {
       const moves = pieceMoves(i, squares);
       // moves : push la classe css pour les squares disponibles pour déplacement
       for (let m = 0; m < moves.moves.length; m += 1) {
-        const move = moves.moves[m];
-        if (!squares[move].classes) squares[move].classes = [];
-        squares[move].classes.push('can-move');
+        const currentMove = moves.moves[m];
+        if (!squares[currentMove].classes) squares[currentMove].classes = [];
+        squares[currentMove].classes.push('can-move');
       }
 
       // eats : push la classe css pour les squares mangeables
@@ -158,6 +160,8 @@ class Game extends Component {
         selected: i,
       });
     }
+
+    return undefined;
   }
   render() {
     return (
@@ -176,9 +180,13 @@ class Game extends Component {
 Game.propTypes = {
   nextPlayer: React.PropTypes.func,
   player: React.PropTypes.string.isRequired,
+  check: React.PropTypes.func,
+  checkMate: React.PropTypes.func,
 };
 Game.defaultProps = {
   nextPlayer() {},
+  check() {},
+  checkMate() {},
 };
 
 export default Game;

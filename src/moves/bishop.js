@@ -1,4 +1,4 @@
-import Position from '../Position';
+import Position from '../utility/Position';
 
 function bishopMoves(square, squares) {
   const moves = [];

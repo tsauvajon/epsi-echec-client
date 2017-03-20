@@ -1,10 +1,10 @@
-import { PieceEnum } from './util';
-import knightMoves from './moves/knight';
-import pawnMoves from './moves/pawn';
-import rookMoves from './moves/rook';
-import bishopMoves from './moves/bishop';
-import queenMoves from './moves/queen';
-import kingMoves from './moves/king';
+import { PieceEnum } from '../utility/util';
+import knightMoves from './knight';
+import pawnMoves from './pawn';
+import rookMoves from './rook';
+import bishopMoves from './bishop';
+import queenMoves from './queen';
+import kingMoves from './king';
 
 function move(squares, from, to) {
   const buffer = squares.slice();

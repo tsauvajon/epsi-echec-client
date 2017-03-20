@@ -1,6 +1,6 @@
-import { move } from '../moves';
-import { assessCheck, checkCheck, checkMate } from '../checks';
-import { getDefaultPieces } from '../util';
+import { move } from '../moves/index';
+import { assessCheck, checkCheck, checkMate } from '../moves/checks';
+import { getDefaultPieces } from '../utility/util';
 
 const defaultBoard = getDefaultPieces();
 

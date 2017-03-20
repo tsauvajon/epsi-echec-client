@@ -1,4 +1,4 @@
-import Position from '../Position';
+import Position from '../utility/Position';
 
 function rookMoves(square, squares) {
   const moves = [];
