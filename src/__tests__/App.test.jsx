@@ -1,13 +1,17 @@
 import React from 'react';
+import { createStore } from 'redux';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import App from '../App';
 import Game from '../Game';
+import todoApp from '../todoApp';
 import { getX, getY, getId } from '../util';
+
+const store = createStore(todoApp);
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<App store={store} />, div);
 });
 
 it('renders correctly for both players', () => {

@@ -31,13 +31,16 @@ class Game extends Component {
     // black king bouge ou est échec : on supprime ses 2 possiblités de roque
     if (i === 4){
       // on vide 0 et 7 du tableau
-      castling = castling.filter(item => item !== 0).filter(item => item !== 7);
+      castling = castling
+        .filter(item => item !== 0)
+        .filter(item => item !== 7);
     }
     // white king : on supprime ses 2 possiblités de roque
     else if (i === 60) {
-      castling = castling.filter(item => item !== 56).filter(item => item !== 63);
-    }
-    else {
+      castling = castling
+        .filter(item => item !== 56)
+        .filter(item => item !== 63);
+    } else {
       castling = castling.filter(item => item !== i)
     }
     this.setState({ castling });
@@ -48,8 +51,11 @@ class Game extends Component {
     const selected = this.state.selected;
     this.cleanClasses();
 
-    // jouer déplacement, si selected === une piece du nextPlayer, et que squares[i] est un move / eat autorisé
-    if((selected || selected === 0) && squares[selected].player && squares[selected].player === nextPlayer) {
+    // jouer déplacement, si selected === une piece du nextPlayer,
+    // et que squares[i] est un move / eat autorisé
+    if((selected || selected === 0)
+      && squares[selected].player
+      && squares[selected].player === nextPlayer) {
       const moves = pieceMoves(selected, squares);
       if (moves.moves.includes(i) || moves.eats.includes(i)) {
         // vérifier que le joueur ne se mettrait pas en echec
