@@ -1,3 +1,5 @@
+@import url("animations.css");
+
 .App {
   text-align: center;
 }
@@ -5,7 +7,7 @@
 .App-logo {
   background: grey;
   height: 80px;
-  border-radius: 40px;
+  border-radius: 50%;
 }
 
 .App-logo-default {
@@ -17,7 +19,8 @@
 }
 
 .App-logo-check-mate {
-  animation: Win-animation 4s forwards;
+  animation: Win-animation-part-one 3s forwards, tada-translated 1s, Win-animation-part-two 1s forwards;
+  animation-delay: 0s, 3s, 4s;
 }
 
 .App-header {
@@ -29,41 +32,6 @@
 
 .App-intro {
   font-size: large;
-}
-
-@keyframes App-logo-spin {
-  0% { transform: rotate(0deg); background: grey;}
-  50% { transform: rotate(360deg); }
-  80% { background: white;}
-  100% { transform: rotate(0deg); background: grey; }
-}
-
-@keyframes App-logo-spin-check {
-  0% { transform: rotate(0deg); background: pink;}
-  50% { transform: rotate(360deg); }
-  80% { background: red;}
-  100% { transform: rotate(0deg); background: pink; }
-}
-
-@keyframes Wiggle {
-  0% { transform: rotate(0deg); }
-  10% { transform: rotate(30deg); }
-  30% { transform: rotate(-30deg); }
-  50% { transform: rotate(30deg); }
-  70% { transform: rotate(-30deg); }
-  90% { transform: rotate(30deg); }
-  100% { transform: rotate(0deg); }
-}
-
-@keyframes In-and-out {
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-@keyframes Win-animation {
-  /*30% { transform: translateY(300px); }*/
-  60% { transform: translateY(260px); }
-  100% { transform: translateY(-20px); background: #ddd; height: 190px; border-radius: 100px; }
 }
 
 .square {
@@ -111,8 +79,32 @@
   width: 34px;
 }
 
-.selected-chessman {
+/*.selected-chessman {
   background: #ccc;
+}*/
+
+.selected-chessman .chessman {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-animation-name: hvr-bob-float, hvr-bob;
+  animation-name: hvr-bob-float, hvr-bob;
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 90%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, transparent 90%);
 }
 
 .can-move {
@@ -133,7 +125,23 @@
 
 .causes-check {
   background: red;
-  animation: In-and-out 1s linear;
+  /*animation: In-and-out 1s linear;*/
+}
+
+.causes-check .chessman {
+  display: inline-block;
+  /*vertical-align: middle;*/
+  /*-webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);*/
+  box-shadow: 0 0 1px transparent;
+  -webkit-animation-name: hvr-buzz-out;
+  animation-name: hvr-buzz-out;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
 }
 
 .game-info {
