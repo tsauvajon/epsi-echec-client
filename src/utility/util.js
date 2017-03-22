@@ -67,6 +67,7 @@ const getDefaultPieces = () => {
   return [...Array(64)].map((_, i) => ({
     player: definePlayer(i),
     piece: definePiece(i),
+    id: i,
   }));
 };
 

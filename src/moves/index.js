@@ -9,7 +9,7 @@ import kingMoves from './king';
 function move(squares, from, to) {
   const buffer = squares.slice();
   buffer[to] = buffer[from];
-  buffer[from] = {};
+  buffer[from] = { id: buffer.id };
   return buffer;
 }
 

@@ -19,9 +19,13 @@ class Game extends Component {
   cleanClasses() {
     const squares = this.state.squares.map(
       (s) => {
+        // const t = { ...s };
+        // // t.classes = undefined;
+        // delete t.classes;
+        // return t;
         const t = s;
-        t.classes = undefined;
-        return s;
+        delete t.classes;
+        return t;
       },
     );
     this.setState({ squares });
@@ -84,7 +88,7 @@ class Game extends Component {
           }
 
           const newNextPlayer = nextPlayer === 'white' ? 'black' : 'white';
-          this.cleanClasses();
+          // this.cleanClasses();
           this.props.nextPlayer();
 
           // On vérifie si le prochain joueur est en échec

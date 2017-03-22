@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import squares from './squares';
-// import visibilityFilter from './visibilityFilter'
+import board from './board';
+import classes from './classes';
 
 const checksApp = combineReducers({
-  squares,
-  // visibilityFilter
+  board,
+  classes,
 });
 
 export default checksApp;
