@@ -14,14 +14,4 @@ env:
 script:
   - npm test
   - npm run lint
-  - npm run build
-  - bash ./scripts/deploy-ghpages.sh
-  # - npm run deploy-ci
-
-# deploy:
-#   skip_cleanup: true
-#   provider: script
-#   script: chmod +x ./scripts/deploy.sh ./scripts/deploy.sh
-#   on:
-#     branch: master
-#     node: '6'
+  - npm run deploy
