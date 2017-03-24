@@ -6,14 +6,14 @@ import bishopMoves from './bishop';
 import queenMoves from './queen';
 import kingMoves from './king';
 
-function move(squares, from, to) {
+const move = (squares, from, to) => {
   const buffer = squares.slice();
   buffer[to] = buffer[from];
   buffer[from] = { id: buffer.id };
   return buffer;
-}
+};
 
-function pieceMoves(square, squares) {
+const pieceMoves = (square, squares, castling) => {
   if (squares[square].piece) {
     switch (squares[square].piece) {
       case PieceEnum.PAWN:
@@ -29,7 +29,7 @@ function pieceMoves(square, squares) {
         return bishopMoves(square, squares);
 
       case PieceEnum.KING:
-        return kingMoves(square, squares);
+        return kingMoves(square, squares, castling);
 
       case PieceEnum.QUEEN:
         return queenMoves(square, squares);
@@ -39,6 +39,6 @@ function pieceMoves(square, squares) {
     }
   }
   return null;
-}
+};
 
 export { pieceMoves, move };

@@ -3,6 +3,7 @@ import Square from './Square';
 import { getX, getY } from '../utility/util';
 
 const getColor = (i) => {
+  // trie les cases claires / foncées
   if ((getX(i) % 2) + (getY(i) % 2) === 1) {
     return 'alt-square';
   }
@@ -24,6 +25,7 @@ class Board extends Component {
   }
   renderRow(r) {
     const row = [];
+    // switches the board for white / black
     let start = 0;
     let increase = 1;
     if (this.props.player === 'black') {

@@ -16,13 +16,10 @@ class Game extends Component {
     };
   }
   // vide le .classes de tous les squares
+  // TODO: coder moins comme un sale
   cleanClasses() {
     const squares = this.state.squares.map(
       (s) => {
-        // const t = { ...s };
-        // // t.classes = undefined;
-        // delete t.classes;
-        // return t;
         const t = s;
         delete t.classes;
         return t;
@@ -39,19 +36,18 @@ class Game extends Component {
     if (i === 4) {
       // on vide 0 et 7 du tableau
       castling = castling
-        .filter(item => item !== 0)
-        .filter(item => item !== 7);
+        .filter(item => item !== 0 && item !== 7);
     } else if (i === 60) {
       // white king : on supprime ses 2 possiblités de roque
       castling = castling
-        .filter(item => item !== 56)
-        .filter(item => item !== 63);
+        .filter(item => item !== 56 && item !== 63);
     } else {
       castling = castling.filter(item => item !== i);
     }
     this.setState({ castling });
     return castling;
   }
+  // TODO: Refactor !! Vraiment codé comme de la merde
   handleClick(i) {
     const squares = this.state.squares.slice();
     const nextPlayer = this.state.nextPlayer;

@@ -21,11 +21,13 @@ class App extends Component {
       check: false,
     });
   }
+  // TODO: dispatch event instead
   check() {
     this.setState({
       check: true,
     });
   }
+  // TODO: dispatch event instead
   checkMate(winner) {
     const logo = (winner === 'white') ? white : black;
     this.setState({
@@ -34,6 +36,7 @@ class App extends Component {
     });
   }
   render() {
+    // header's logo className
     let className;
     if (this.state.checkMate) {
       className = 'App-logo-check-mate';
@@ -42,11 +45,6 @@ class App extends Component {
     } else {
       className = 'App-logo-default';
     }
-    // const className = this.state.checkMate ?
-    // 'App-logo-check-mate'
-    // : this.state.check
-    // ? 'App-logo-check'
-    // : 'App-logo-default';
     return (
       <div className="App">
         <div className="App-header">
