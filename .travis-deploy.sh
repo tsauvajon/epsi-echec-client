@@ -19,6 +19,9 @@ cd ..
 # Clean out existing contents
 rm -rf build/**/* || exit 0
 
+# Build the app
+yarn build
+
 # Now let's go have some fun with the cloned repo
 cd build
 git config user.name "Travis CI"
