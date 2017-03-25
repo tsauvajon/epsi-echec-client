@@ -10,6 +10,4 @@ env:
 script:
   - yarn test
   - yarn lint
-  # - yarn build
-  # - yarn deploy
   - bash ./.travis-deploy.sh
