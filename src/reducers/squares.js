@@ -9,6 +9,8 @@ const squares = (state = [], action) => {
   switch (action.type) {
     case 'MOVE_PIECE':
       return move(state, action.from, action.to);
+    case 'ADD_PIECE':
+    case 'REMOVE_PIECE':
     default:
       return state;
   }
