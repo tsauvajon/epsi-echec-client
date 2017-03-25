@@ -17,13 +17,15 @@ git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
 # Clean out existing contents
-rm -rf build/**/* || exit 0
+rm -rf build/static/* || exit 0
 
 # Build the app
 yarn build
 
 # Now let's go have some fun with the cloned repo
 cd build
+# debug
+ls
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
