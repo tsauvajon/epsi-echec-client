@@ -15,4 +15,4 @@ script:
   - yarn lint
   # - yarn build
   # - yarn deploy
-  # - bash ./.travis-deploy.sh
+  - bash ./.travis-deploy.sh
