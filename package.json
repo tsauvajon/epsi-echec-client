@@ -10,7 +10,8 @@
     "babel-preset-react": "^6.23.0",
     "gh-pages": "^0.12.0",
     "pre-commit": "^1.2.2",
-    "react-addons-test-utils": "^15.4.2"
+    "react-addons-test-utils": "^15.4.2",
+    "travis-encrypt": "^2.1.1"
   },
   "dependencies": {
     "deep-freeze": "^0.0.1",
