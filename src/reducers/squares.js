@@ -1,17 +1,22 @@
 import square from './square';
 
-// TODO refactor this
-const move = (state, from, to) => {
-  const buffer = state.slice();
-  buffer[to] = { ...buffer[from], id: state[to].id };
-  buffer[from] = { id: state[from].id };
-  return buffer;
-};
-
+// MOVE = ADD then REMOVE
 const squares = (state = [], action) => {
   switch (action.type) {
     case 'MOVE_PIECE':
-      return move(state, action.from, action.to);
+      return state.map(s =>
+        square(s, {
+          type: 'ADD_PIECE',
+          id: action.to,
+          player: state[action.from].player,
+          piece: state[action.from].piece,
+        }),
+      ).map(s =>
+        square(s, {
+          type: 'REMOVE_PIECE',
+          id: action.from,
+        }),
+      );
     case 'ADD_PIECE':
     case 'REMOVE_PIECE':
       return state.map(s =>

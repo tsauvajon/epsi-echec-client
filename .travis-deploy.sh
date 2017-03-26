@@ -48,13 +48,10 @@ ENCRYPTED_IV=${!ENCRYPTED_IV_VAR}
 
 openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in deploy_key.enc -out deploy_key -d
 chmod 600 deploy_key
-# cp deploy_key ~/.ssh/id_rsa
-# PS=""
-# install -vm700 <(echo "echo $PS") $PWD/my_pass
 eval `ssh-agent -s`
-# DISPLAY= SSH_ASKPASS=$PWD/my_pass ssh-add - && rm -v my_pass
-# cp deploy_key ~/.ssh/id_rsa
-echo "" | ssh-add deploy_key -
+echo "" | cp deploy_key ~/.ssh/id_rsa -
+## FIXME
+# ssh-add deploy_key
 
 # Now that we're all set up, we can push.
 cd build

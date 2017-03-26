@@ -10,7 +10,7 @@ env:
 script:
   - yarn test
   - yarn lint
-  - bash ./.travis-deploy.sh
+  # - bash ./.travis-deploy.sh
 # deploy:
 #   provider: pages
 #   skip_cleanup: true
