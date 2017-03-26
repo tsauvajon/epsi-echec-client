@@ -42,13 +42,16 @@ ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
 ENCRYPTED_IV_VAR="encrypted_${ENCRYPTION_LABEL}_iv"
 ENCRYPTED_KEY=${!ENCRYPTED_KEY_VAR}
 ENCRYPTED_IV=${!ENCRYPTED_IV_VAR}
-# openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in deploy_key.enc -out deploy_key -d
-eval `ssh-agent -s`
-openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in deploy_key.enc -d | ssh-add -
-# chmod 600 deploy_key
-# cp deploy_key ~/.ssh/id_rsa
+
 # eval `ssh-agent -s`
-# ssh-add deploy_key
+# openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in deploy_key.enc -d | ssh-add -
+
+DISPLAY= SSH_ASKPASS=/bin/true ssh-add
+openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in deploy_key.enc -out deploy_key -d
+chmod 600 deploy_key
+#cp deploy_key ~/.ssh/id_rsa
+eval `ssh-agent -s`
+ssh-add deploy_key
 
 # Now that we're all set up, we can push.
 cd build
