@@ -17,7 +17,7 @@ git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
 # Clean out existing contents
-# rm -rf build/static/* || exit 0
+# rm -rf build/**/* || exit 0
 
 # Build the app
 yarn build
@@ -26,7 +26,7 @@ yarn build
 cd build
 
 # debug
-ls
+ls -al
 
 # Git config
 git config user.name "Travis CI"
