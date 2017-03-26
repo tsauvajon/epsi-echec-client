@@ -33,6 +33,31 @@ it('adds a piece', () => {
 });
 
 it('removes a piece', () => {
+  const stateBefore = { squares: [
+    { id: 0 },
+    {
+      id: 1,
+      player: 'white',
+      piece: PieceEnum.QUEEN,
+    },
+  ] };
+
+  const action = {
+    type: 'REMOVE_PIECE',
+    id: 1,
+  };
+
+  const stateAfter = { squares: [
+    { id: 0 },
+    { id: 1 },
+  ] };
+
+  deepFreeze(stateBefore);
+  deepFreeze(action);
+
+  expect(
+    squares(stateBefore.squares, action),
+  ).toEqual(stateAfter.squares);
 });
 
 it('moves a piece', () => {

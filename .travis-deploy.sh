@@ -54,7 +54,7 @@ chmod 600 deploy_key
 eval `ssh-agent -s`
 # DISPLAY= SSH_ASKPASS=$PWD/my_pass ssh-add - && rm -v my_pass
 # cp deploy_key ~/.ssh/id_rsa
-echo. | ssh-add deploy_key
+echo "" | ssh-add deploy_key
 
 # Now that we're all set up, we can push.
 cd build

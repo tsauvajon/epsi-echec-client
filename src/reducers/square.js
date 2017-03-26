@@ -13,6 +13,14 @@ const square = (state = [], action) => {
         player: action.player,
         piece: action.piece,
       };
+    case 'REMOVE_PIECE':
+      if (state.id !== action.id) {
+        return state;
+      }
+
+      return {
+        id: action.id,
+      };
     default:
       return state;
   }
