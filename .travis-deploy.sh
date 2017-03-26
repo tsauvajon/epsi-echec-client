@@ -26,7 +26,9 @@ yarn build
 cd build
 
 # debug
-ls -al
+ls -a
+
+git init
 
 # Git config
 git config user.name "Travis CI"
