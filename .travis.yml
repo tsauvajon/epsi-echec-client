@@ -3,11 +3,18 @@ node_js:
   - "6"
 env:
     global:
-      - ENCRYPTION_LABEL: "fdfda14a8651"
-      - COMMIT_AUTHOR_EMAIL: "thomas.sauvajon.dev@gmail.com"
+      # - ENCRYPTION_LABEL: "fdfda14a8651"
+      # - COMMIT_AUTHOR_EMAIL: "thomas.sauvajon.dev@gmail.com"
       - CI=true
       - NODE_ENV=production
 script:
   - yarn test
   - yarn lint
-  - bash ./.travis-deploy.sh
+  # - bash ./.travis-deploy.sh
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  local_dir: ./build
+  on:
+    branch: master
