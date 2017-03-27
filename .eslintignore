@@ -1,2 +1,4 @@
 # built files
 build/*
+
+coverage/*

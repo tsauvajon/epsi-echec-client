@@ -28,8 +28,8 @@ it('adds a piece', () => {
   deepFreeze(action);
 
   expect(
-    squares(stateBefore.squares, action),
-  ).toEqual(stateAfter.squares);
+    squares(stateBefore, action),
+  ).toEqual(stateAfter);
 });
 
 it('removes a piece', () => {
@@ -56,8 +56,8 @@ it('removes a piece', () => {
   deepFreeze(action);
 
   expect(
-    squares(stateBefore.squares, action),
-  ).toEqual(stateAfter.squares);
+    squares(stateBefore, action),
+  ).toEqual(stateAfter);
 });
 
 it('moves a piece', () => {
@@ -89,6 +89,6 @@ it('moves a piece', () => {
   deepFreeze(action);
 
   expect(
-    squares(stateBefore.squares, action),
-  ).toEqual(stateAfter.squares);
+    squares(stateBefore, action),
+  ).toEqual(stateAfter);
 });

@@ -1,4 +1,3 @@
-// TODO
 const square = (state = [], action) => {
   switch (action.type) {
     case 'ADD_PIECE':
