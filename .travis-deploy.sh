@@ -1,21 +1,58 @@
+#!/bin/bash
+set -e # Exit with nonzero exit code if anything fails
 
-# go to the directory which contains build artifacts and create a *new* Git repo
-# directory may be different based on your particular build process
+SOURCE_BRANCH="master"
+TARGET_BRANCH="gh-pages"
+
+# Save some useful information
+REPO=`git config remote.origin.url`
+SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
+SHA=`git rev-parse --verify HEAD`
+
+# Clone the existing gh-pages for this repo into out/
+# Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
+git clone $REPO build
 cd build
+git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+cd ..
+
+# Clean out existing contents
+# rm -rf build/**/* || exit 0
+
+# Build the app
+yarn build
+
+# Now let's go have some fun with the cloned repo
+cd build
+
 git init
 
-# inside this git repo we'll pretend to be a new user
+# Git config
 git config user.name "Travis CI"
-git config user.email "thomas.sauvajon.dev@gmail.com"
+git config user.email "$COMMIT_AUTHOR_EMAIL"
 
-# The first and only commit to this new Git repo contains all the
-# files present with the commit message "Deploy to GitHub Pages".
+# Commit the "changes", i.e. the new version.
+# The delta will show diffs between new and old versions.
 git add .
-git commit -m "Deploy to GitHub Pages"
+git commit -m "Deploy to GitHub Pages: ${SHA}"
 
-# Force push from the current repo's master branch to the remote
-# repo's gh-pages branch. (All previous history on the gh-pages branch
-# will be lost, since we are overwriting it.) We redirect any output to
-# /dev/null to hide any sensitive credential data that might otherwise be exposed.
-# tokens GH_TOKEN and GH_REF will be provided as Travis CI environment variables
-git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+# Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
+cd ..
+ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
+ENCRYPTED_IV_VAR="encrypted_${ENCRYPTION_LABEL}_iv"
+ENCRYPTED_KEY=${!ENCRYPTED_KEY_VAR}
+ENCRYPTED_IV=${!ENCRYPTED_IV_VAR}
+
+# eval `ssh-agent -s`
+# openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in deploy_key.enc -d | ssh-add -
+
+openssl aes-256-cbc -K $ENCRYPTED_KEY -iv $ENCRYPTED_IV -in deploy_key.enc -out deploy_key -d
+chmod 600 deploy_key
+eval `ssh-agent -s`
+echo "" | cp deploy_key ~/.ssh/id_rsa -
+## FIXME
+# ssh-add deploy_key
+
+# Now that we're all set up, we can push.
+cd build
+git push $SSH_REPO $TARGET_BRANCH

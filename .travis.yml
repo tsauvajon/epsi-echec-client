@@ -3,16 +3,18 @@ node_js:
   - "6"
 env:
     global:
-      - ENCRYPTION_LABEL: "FS+qk9dU4Xc1BTRToaqJCybtlkF7w/fxrZjI8AxsKm2a3zC6wJsoImKEeqjAvEEDcArGNZZf5zKD7TIjj3yxrD27eDVNSdv+7xACtkdWvUbaTxHCRRURhq0mYTEpkFF1cuL88z9fYegD9lv68hUdiPEAHsX7hUWeitgVIxm7MQXlrHDdEEjuPRBnHO/FpTnseifrwWtRpwD8bFJJ7UwJ1L4yoVa9Y41psqjXq/J1LJ0AZsA0d8b7EdybadMsKroccibPdIy9/RJOxOLV9h6gRAxd4DxD6rFffrBqZjul5hoY3rPCZ2fHeMHkO8JaNgK7aRicuevRc6ZZxKV5u1SvKml0PW624UWisIOX3iVN77rCxCVlfd9T3jiwMxuBWH5GmoRSRcn7JmyzX9ccIWXh0sJD5j4I6Q6K9H8UUbng7I+2HFPjkemQ9MN88St+cOg0NOjgazQgre0rR7XeJsGa1t5DYoRn9X0x9RARWM835QKVRB6yiBD3oWZ9Aw8218frFqqdnIP6ifSKp3MQnv3PCpH5KPVep3zrpro8RIMU3SVr1ZmYHYzuPun6VmeN2OY54UY2vL45vNoUPm1pTAxJw+8HneDoxZRQ7DssMCTpMND7J07C5XYi4q1s9+0UMMz9kuc8gd75/2gk5H8/Ne/U4zyQb1AdTZLt/DdeDNxkp28="
+      - ENCRYPTION_LABEL: "fdfda14a8651"
       - COMMIT_AUTHOR_EMAIL: "thomas.sauvajon.dev@gmail.com"
       - CI=true
       - NODE_ENV=production
-      - GH_REF: github.com/tsauvajon/epsi-echec-client.git
-      - GH_TOKEN: FS+qk9dU4Xc1BTRToaqJCybtlkF7w/fxrZjI8AxsKm2a3zC6wJsoImKEeqjAvEEDcArGNZZf5zKD7TIjj3yxrD27eDVNSdv+7xACtkdWvUbaTxHCRRURhq0mYTEpkFF1cuL88z9fYegD9lv68hUdiPEAHsX7hUWeitgVIxm7MQXlrHDdEEjuPRBnHO/FpTnseifrwWtRpwD8bFJJ7UwJ1L4yoVa9Y41psqjXq/J1LJ0AZsA0d8b7EdybadMsKroccibPdIy9/RJOxOLV9h6gRAxd4DxD6rFffrBqZjul5hoY3rPCZ2fHeMHkO8JaNgK7aRicuevRc6ZZxKV5u1SvKml0PW624UWisIOX3iVN77rCxCVlfd9T3jiwMxuBWH5GmoRSRcn7JmyzX9ccIWXh0sJD5j4I6Q6K9H8UUbng7I+2HFPjkemQ9MN88St+cOg0NOjgazQgre0rR7XeJsGa1t5DYoRn9X0x9RARWM835QKVRB6yiBD3oWZ9Aw8218frFqqdnIP6ifSKp3MQnv3PCpH5KPVep3zrpro8RIMU3SVr1ZmYHYzuPun6VmeN2OY54UY2vL45vNoUPm1pTAxJw+8HneDoxZRQ7DssMCTpMND7J07C5XYi4q1s9+0UMMz9kuc8gd75/2gk5H8/Ne/U4zyQb1AdTZLt/DdeDNxkp28=
-      - GIT_DEPLOY_REPO=https://$GITHUB_TOKEN@$GH_REF
 script:
   - yarn test
   - yarn lint
-  # - yarn build
-  # - yarn deploy
   # - bash ./.travis-deploy.sh
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+#   local_dir: build
+#   on:
+#     branch: master
