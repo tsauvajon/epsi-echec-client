@@ -10,7 +10,7 @@ env:
 script:
   - yarn lint
   - yarn test-once-unix
-  - coverage
+  - yarn coverage
   # - bash ./.travis-deploy.sh
 # deploy:
 #   provider: pages
