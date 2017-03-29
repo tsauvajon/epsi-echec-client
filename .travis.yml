@@ -8,7 +8,9 @@ env:
       - CI=true
       - NODE_ENV=production
 script:
-  - yarn test-full
+  - yarn lint
+  - yarn test-once-unix
+  - coverage
   # - bash ./.travis-deploy.sh
 # deploy:
 #   provider: pages
