@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "homepage": "https://tsauvajon.github.io/epsi-echec-client",
   "private": true,
+  "proxy": "http://mtxdev64/PrismAPI/",
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-jest": "^19.0.0",
