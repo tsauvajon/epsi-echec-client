@@ -30,8 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "test-full": "yarn lint && react-scripts test --env=jsdom --coverage",
-    "test-once": "CI=true yarn test",
+    "test-full": "yarn lint && react-scripts test --env=jsdom --coverage && codecov",
+    "test-once": "set CI=true && yarn test",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint ./ --cache --ignore-pattern .gitignore",
     "deploy": "gh-pages -d build"
