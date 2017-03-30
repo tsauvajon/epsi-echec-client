@@ -1,9 +1,8 @@
 {
   "name": "epsi-echec-client",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "homepage": "https://tsauvajon.github.io/epsi-echec-client",
-  "private": true,
-  "proxy": "http://mtxdev64/PrismAPI/",
+  "private": false,
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-jest": "^19.0.0",
@@ -32,9 +31,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "test-full": "yarn lint && react-scripts test --env=jsdom --coverage",
-    "test-once-windows": "set CI=true && yarn test",
-    "test-once-unix": "CI=true yarn test",
+    "test:full": "yarn lint && yarn test:coverage",
+    "test:coverage": "react-scripts test --env=jsdom --coverage",
+    "test:windows": "set CI=true && yarn test",
+    "test:unix": "CI=true yarn test",
     "eject": "react-scripts eject",
     "coverage": "codecov",
     "lint": "./node_modules/.bin/eslint ./ --cache --ignore-pattern .gitignore",
@@ -43,7 +43,7 @@
   "pre-commit": {
     "run": [
       "lint",
-      "test-once-windows"
+      "test:windows"
     ]
   },
   "jest": {
