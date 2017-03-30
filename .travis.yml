@@ -9,7 +9,7 @@ env:
       - NODE_ENV=production
 script:
   - yarn lint
-  - yarn test-full
+  - yarn test:coverage
   - yarn coverage
   # - bash ./.travis-deploy.sh
 # deploy:
