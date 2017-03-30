@@ -36,7 +36,7 @@
     "test:windows": "set CI=true && yarn test",
     "test:unix": "CI=true yarn test",
     "eject": "react-scripts eject",
-    "coverage": "codecov",
+    "export:coverage": "codecov",
     "lint": "./node_modules/.bin/eslint ./ --cache --ignore-pattern .gitignore",
     "deploy": "gh-pages -d build"
   },
