@@ -34,7 +34,7 @@
     "test:full": "yarn lint && yarn test:coverage",
     "test:coverage": "react-scripts test --env=jsdom --coverage",
     "test:windows": "set CI=true && yarn test",
-    "test:unix": "CI=true yarn test",
+    "test:unix": "CI=true yarn test:coverage",
     "eject": "react-scripts eject",
     "export:coverage": "codecov",
     "lint": "./node_modules/.bin/eslint ./ --cache --ignore-pattern .gitignore",
