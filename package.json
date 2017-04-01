@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "codecov": "^2.1.0",
+    "cross-env": "^4.0.0",
     "deep-freeze": "^0.0.1",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
@@ -33,8 +34,7 @@
     "test": "react-scripts test --env=jsdom",
     "test:full": "yarn lint && yarn test:coverage",
     "test:coverage": "react-scripts test --env=jsdom --coverage",
-    "test:windows": "set CI=true && yarn test",
-    "test:unix": "CI=true yarn test:coverage",
+    "test:once": "cross-env CI=true yarn test",
     "eject": "react-scripts eject",
     "export:coverage": "codecov",
     "lint": "./node_modules/.bin/eslint ./ --cache --ignore-pattern .gitignore",
