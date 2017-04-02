@@ -41,9 +41,8 @@ const definePiece = (i) => {
         return PieceEnum.KNIGHT;
       case 2:
       case 7 - 2:
-        return PieceEnum.BISHOP;
       default:
-        return undefined;
+        return PieceEnum.BISHOP;
     }
   };
 

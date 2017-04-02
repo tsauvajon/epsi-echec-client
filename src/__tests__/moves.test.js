@@ -85,6 +85,19 @@ it('moves kings', () => {
   store.dispatch(movePiece(27, 60));
 });
 
+it('moves kings when close to borders', () => {
+  store.dispatch(movePiece(4, 16));
+
+  const moves = pieceMoves(16, store.getState().squares);
+  const expectedMoves = {
+    moves: [17, 24, 25],
+    eats: [],
+  };
+  expect(moves).toEqual(expectedMoves);
+
+  store.dispatch(movePiece(16, 4));
+});
+
 it('makes kings eat', () => {
   store.dispatch(movePiece(4, 62));
 
