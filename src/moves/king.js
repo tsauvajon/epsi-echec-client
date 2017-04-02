@@ -3,10 +3,9 @@ import Position from '../utility/Position';
 const kingMoves = (square, squares, castling = []) => {
   const moves = [];
   const eats = [];
+  const castles = [];
   const player = squares[square].player;
   const pos = new Position(square);
-
-  // console.log(squares, 'castling:', castling);
 
   let availableCastles = [];
   // ajout des moves de castling (roque)
@@ -22,21 +21,21 @@ const kingMoves = (square, squares, castling = []) => {
     let empty = true;
     let start;
     let step;
-    if (i < 60) {
-      start = 57;
+    if (i < square) {
+      start = square - 3;
       step = 1;
     } else {
-      start = 62;
+      start = square + 2;
       step = -1;
     }
-    for (let j = start; j !== 60 && empty; j += step) {
+    for (let j = start; j !== square && empty; j += step) {
       // si la case est remplie :
       if (squares[j].piece) {
         empty = false;
       }
     }
     if (empty) {
-      moves.push(i);
+      castles.push(start);
     }
   });
 
@@ -122,6 +121,7 @@ const kingMoves = (square, squares, castling = []) => {
   return {
     moves: moves.sort((a, b) => a > b),
     eats: eats.sort((a, b) => a > b),
+    castles: castles.sort((a, b) => a > b),
   };
 };
 

@@ -136,6 +136,7 @@ it('moves kings', () => {
   const expectedMoves = {
     moves: [18, 19, 20, 26, 28, 34, 35, 36],
     eats: [],
+    castles: [],
   };
   expect(moves).toEqual(expectedMoves);
 
@@ -149,6 +150,7 @@ it('moves kings when close to borders', () => {
   const expectedMoves = {
     moves: [17, 24, 25],
     eats: [],
+    castles: [],
   };
   expect(moves).toEqual(expectedMoves);
 
@@ -162,6 +164,7 @@ it('makes kings eat', () => {
   const expectedEats = {
     moves: [],
     eats: [53, 54, 55, 61, 63],
+    castles: [],
   };
   expect(eats).toEqual(expectedEats);
 
@@ -176,6 +179,7 @@ it('makes white king eat', () => {
   const expectedEats = {
     moves: [],
     eats: [1, 3, 9, 10, 11],
+    castles: [],
   };
   expect(eats).toEqual(expectedEats);
   store.dispatch(movePiece(2, 60));
@@ -185,10 +189,11 @@ it('makes white king eat', () => {
 it('forbids to castle when pieces are in between', () => {
   store.dispatch(removePiece(57));
   store.dispatch(removePiece(62));
-  const moves = pieceMoves(60, store.getState().squares, [1, 6, 57, 62]);
+  const moves = pieceMoves(60, store.getState().squares, [0, 7, 56, 63]);
   const expectedMoves = {
     moves: [],
     eats: [],
+    castles: [],
   };
   expect(moves).toEqual(expectedMoves);
 });
@@ -200,10 +205,11 @@ it('castles for white', () => {
   store.dispatch(removePiece(59));
   store.dispatch(removePiece(61));
   store.dispatch(removePiece(62));
-  const moves = pieceMoves(60, store.getState().squares, [1, 6, 57, 62]);
+  const moves = pieceMoves(60, store.getState().squares, [0, 7, 56, 63]);
   const expectedMoves = {
-    moves: [57, 59, 61, 62],
+    moves: [59, 61],
     eats: [],
+    castles: [57, 62],
   };
   expect(moves).toEqual(expectedMoves);
 });
@@ -214,10 +220,11 @@ it('castles for black', () => {
   store.dispatch(removePiece(3));
   store.dispatch(removePiece(5));
   store.dispatch(removePiece(6));
-  const moves = pieceMoves(4, store.getState().squares, [1, 6, 57, 62]);
+  const moves = pieceMoves(4, store.getState().squares, [0, 7, 56, 63]);
   const expectedMoves = {
-    moves: [1, 3, 5, 6],
+    moves: [3, 5],
     eats: [],
+    castles: [1, 6],
   };
   expect(moves).toEqual(expectedMoves);
 });

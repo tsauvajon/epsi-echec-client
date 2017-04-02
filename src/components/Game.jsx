@@ -12,7 +12,7 @@ class Game extends Component {
       squares,
       nextPlayer: 'white',
       selected: null,
-      castling: [56, 63, 0, 7],
+      castling: [0, 7, 56, 63],
     };
   }
   // vide le .classes de tous les squares
@@ -31,10 +31,10 @@ class Game extends Component {
   removeCastling(i) {
     // si le tableau est déjà vide pas la peine de vérifier
     let castling = this.state.castling.slice();
-    if (!castling.length) return undefined;
+    if (!castling.length) return [];
     // black king bouge ou est échec : on supprime ses 2 possiblités de roque
     if (i === 4) {
-      // on vide 0 et 7 du tableau
+      // on vide 1 et 6 du tableau
       castling = castling
         .filter(item => item !== 0 && item !== 7);
     } else if (i === 60) {
@@ -59,7 +59,7 @@ class Game extends Component {
     if ((selected || selected === 0)
       && squares[selected].player
       && squares[selected].player === nextPlayer) {
-      const moves = pieceMoves(selected, squares);
+      const moves = pieceMoves(selected, squares, this.state.castling);
       if (moves.moves.includes(i) || moves.eats.includes(i)) {
         // vérifier que le joueur ne se mettrait pas en echec
         const checkFrom = assessCheck(squares, selected, i);
@@ -123,6 +123,7 @@ class Game extends Component {
               this.setState({
                 nextPlayer: newNextPlayer,
                 squares: newSquares,
+                castling: [],
               });
             }
           }
@@ -140,7 +141,7 @@ class Game extends Component {
       if (!squares[i].classes) squares[i].classes = [];
       squares[i].classes.push('selected-chessman');
 
-      const moves = pieceMoves(i, squares);
+      const moves = pieceMoves(i, squares, this.state.castling);
       // moves : push la classe css pour les squares disponibles pour déplacement
       for (let m = 0; m < moves.moves.length; m += 1) {
         const currentMove = moves.moves[m];

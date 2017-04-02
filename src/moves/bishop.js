@@ -6,9 +6,6 @@ function bishopMoves(square, squares) {
   const player = squares[square].player;
   const pos = new Position(square);
 
-  // FIXME : vérifier que à la fois addX et addY sont ok
-  //
-
   // bas-droite
   while (pos.addXY(1, 1) && !squares[pos.i].piece) {
     moves.push(pos.i);

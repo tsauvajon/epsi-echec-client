@@ -38,9 +38,9 @@ class Position {
   addXY(x, y) {
     const newX = this.x() + x;
     const newY = this.y() + y;
-    // if (newX < 0 || newY < 0 || newX > 7 || newY > 7) {
-    //   return null;
-    // }
+    if (newX < 0 || newY < 0 || newX > 7 || newY > 7) {
+      return null;
+    }
     this.setI(getId(newX, newY));
     return this;
   }
