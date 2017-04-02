@@ -63,9 +63,9 @@ const getDefaultPieces = () => (
   // puis on applique les fonctions de définition sur chacun des squares
   [...Array(64)].map(
     (_, i) => ({
+      id: i,
       player: definePlayer(i),
       piece: definePiece(i),
-      id: i,
     }),
   )
 );
