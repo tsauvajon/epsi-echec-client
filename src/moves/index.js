@@ -13,7 +13,7 @@ const move = (squares, from, to) => {
   return buffer;
 };
 
-const pieceMoves = (square, squares, castling) => {
+const pieceMoves = (square, squares, castling = []) => {
   if (squares[square].piece) {
     switch (squares[square].piece) {
       case PieceEnum.PAWN:

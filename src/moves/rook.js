@@ -42,7 +42,10 @@ function rookMoves(square, squares) {
     eats.push(pos.i);
   }
 
-  return { moves, eats };
+  return {
+    moves: moves.sort((a, b) => a > b),
+    eats: eats.sort((a, b) => a > b),
+  };
 }
 
 export default rookMoves;

@@ -1,6 +1,6 @@
 import Position from '../utility/Position';
 
-function kingMoves(square, squares, castling) {
+const kingMoves = (square, squares, castling = []) => {
   const moves = [];
   const eats = [];
   const player = squares[square].player;
@@ -92,7 +92,10 @@ function kingMoves(square, squares, castling) {
     }
   }
 
-  return { moves, eats };
-}
+  return {
+    moves: moves.sort((a, b) => a > b),
+    eats: eats.sort((a, b) => a > b),
+  };
+};
 
 export default kingMoves;

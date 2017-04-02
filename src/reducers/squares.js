@@ -4,43 +4,32 @@ import square from './square';
 const squares = (state = [], action) => {
   switch (action.type) {
     case 'MOVE_PIECE':
-      return {
-        ...state,
-        squares: state.squares.map(s =>
+      return state.map(s =>
           square(s, {
             type: 'ADD_PIECE',
             id: action.to,
-            player: state.squares[action.from].player,
-            piece: state.squares[action.from].piece,
+            player: state[action.from].player,
+            piece: state[action.from].piece,
           }),
         ).map(s =>
           square(s, {
             type: 'REMOVE_PIECE',
             id: action.from,
           }),
-        ),
-      };
+        );
     case 'ADD_PIECE':
     case 'REMOVE_PIECE':
-      return {
-        ...state,
-        squares: state.squares.map(s =>
-          square(s, action)),
-      };
+      return state.map(s =>
+          square(s, action));
     case 'CLEAN_CLASSES':
-      return {
-        ...state,
-        squares: state.squares.map(
+      return state.map(
           s => ({
             ...s,
             classes: undefined,
           }),
-        ),
-      };
+        );
     case 'ADD_CLASS':
-      return {
-        ...state,
-        squares: state.squares.map(
+      return state.map(
           (s) => {
             if (s.id === action.squareId) {
               const newSquare = { ...s };
@@ -53,8 +42,7 @@ const squares = (state = [], action) => {
             }
             return s;
           },
-        ),
-      };
+        );
     default:
       return state;
   }

@@ -39,7 +39,10 @@ function knightMoves(square, squares) {
     }
   }
 
-  return { moves, eats };
+  return {
+    moves: moves.sort((a, b) => a > b),
+    eats: eats.sort((a, b) => a > b),
+  };
 }
 
 export default knightMoves;

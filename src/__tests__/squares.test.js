@@ -1,19 +1,13 @@
 import deepFreeze from 'deep-freeze';
 import squares from '../reducers/squares';
 import { PieceEnum } from '../utility/util';
+import { addPiece, removePiece } from '../actions';
 
 it('adds a piece', () => {
   const stateBefore = { squares: [
     { id: 0 },
     { id: 1 },
   ] };
-
-  const action = {
-    type: 'ADD_PIECE',
-    player: 'white',
-    piece: PieceEnum.QUEEN,
-    id: 1,
-  };
 
   const stateAfter = { squares: [
     { id: 0 },
@@ -25,11 +19,10 @@ it('adds a piece', () => {
   ] };
 
   deepFreeze(stateBefore);
-  deepFreeze(action);
 
   expect(
-    squares(stateBefore, action),
-  ).toEqual(stateAfter);
+    squares(stateBefore.squares, addPiece(1, 'white', PieceEnum.QUEEN)),
+  ).toEqual(stateAfter.squares);
 });
 
 it('removes a piece', () => {
@@ -56,8 +49,8 @@ it('removes a piece', () => {
   deepFreeze(action);
 
   expect(
-    squares(stateBefore, action),
-  ).toEqual(stateAfter);
+    squares(stateBefore.squares, removePiece(1)),
+  ).toEqual(stateAfter.squares);
 });
 
 it('moves a piece', () => {
@@ -89,6 +82,6 @@ it('moves a piece', () => {
   deepFreeze(action);
 
   expect(
-    squares(stateBefore, action),
-  ).toEqual(stateAfter);
+    squares(stateBefore.squares, action),
+  ).toEqual(stateAfter.squares);
 });

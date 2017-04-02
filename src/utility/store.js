@@ -1,12 +1,6 @@
-const PieceEnum = Object.freeze({
-  KING: 'king',
-  QUEEN: 'queen',
-  ROOK: 'rook',
-  BISHOP: 'bishop',
-  KNIGHT: 'knight',
-  PAWN: 'pawn',
-});
-
+import { createStore } from 'redux';
+import checksApp from '../reducers';
+import { PieceEnum } from '../utility/util';
 
 // définit la couleur de la pièce
 const definePlayer = (i) => {
@@ -77,10 +71,10 @@ const getDefaultPieces = () => (
   )
 );
 
-const getX = i => i % 8;
+const initialState = {
+  squares: getDefaultPieces(),
+};
 
-const getY = i => parseInt(i / 8, 10);
+const store = createStore(checksApp, initialState);
 
-const getId = (x, y) => (y * 8) + x;
-
-export { PieceEnum, getX, getY, getId, getDefaultPieces };
+export default store;

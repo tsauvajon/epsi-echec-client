@@ -1,22 +1,20 @@
-const square = (state = [], action) => {
-  switch (action.type) {
+const square = (state = [], { type, id, player, piece }) => {
+  switch (type) {
     case 'ADD_PIECE':
-      if (state.id !== action.id) {
+      if (state.id !== id) {
         return state;
       }
-
       return {
-        id: action.id,
-        player: action.player,
-        piece: action.piece,
+        id,
+        player,
+        piece,
       };
     case 'REMOVE_PIECE':
-      if (state.id !== action.id) {
+      if (state.id !== id) {
         return state;
       }
-
       return {
-        id: action.id,
+        id,
       };
     default:
       return state;

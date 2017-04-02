@@ -71,8 +71,8 @@ function pawnEats(square, squares, player) {
 function pawnMoves(square, squares) {
   const player = squares[square].player;
   return {
-    moves: pawnDeplacements(square, squares, player),
-    eats: pawnEats(square, squares, player),
+    moves: pawnDeplacements(square, squares, player).sort(),
+    eats: pawnEats(square, squares, player).sort(),
   };
 }
 
