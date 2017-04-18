@@ -108,11 +108,15 @@
 }
 
 .can-move {
-  background: green;
+  background-color: green;
 }
 
 .can-eat {
-  background: orange;
+  background-color: orange;
+}
+
+.can-castle {
+  background-color: purple;
 }
 
 .is-check {

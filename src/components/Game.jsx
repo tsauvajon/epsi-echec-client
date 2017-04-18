@@ -156,6 +156,15 @@ class Game extends Component {
         squares[eat].classes.push('can-eat');
       }
 
+      // castles : push la classe css pour les squares "roquables"
+      if (moves.castles) {
+        for (let e = 0; e < moves.castles.length; e += 1) {
+          const castle = moves.castles[e];
+          if (!squares[castle].classes) squares[castle].classes = [];
+          squares[castle].classes.push('can-castle');
+        }
+      }
+
       // on update les squares (pour update les classes) et la case selected
       this.setState({
         squares,
