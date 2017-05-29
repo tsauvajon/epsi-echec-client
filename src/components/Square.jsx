@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { PieceEnum } from '../utility/util';
 // images
 import bishopBlack from '../pieces/bishop-black.svg';
@@ -67,11 +68,11 @@ function Square(props) {
 }
 
 Square.propTypes = {
-  classes: React.PropTypes.arrayOf(React.PropTypes.string),
-  piece: React.PropTypes.string,
-  player: React.PropTypes.string,
-  color: React.PropTypes.string,
-  onClick: React.PropTypes.func,
+  classes: PropTypes.arrayOf(PropTypes.string),
+  piece: PropTypes.string,
+  player: PropTypes.string,
+  color: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default Square;

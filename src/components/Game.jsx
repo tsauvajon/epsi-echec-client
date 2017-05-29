@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Board from './Board';
 import { getDefaultPieces, PieceEnum } from '../utility/util';
 import { pieceMoves, move } from '../moves/index';
@@ -189,10 +190,10 @@ class Game extends Component {
   }
 }
 Game.propTypes = {
-  nextPlayer: React.PropTypes.func,
-  player: React.PropTypes.string.isRequired,
-  check: React.PropTypes.func,
-  checkMate: React.PropTypes.func,
+  nextPlayer: PropTypes.func,
+  player: PropTypes.string.isRequired,
+  check: PropTypes.func,
+  checkMate: PropTypes.func,
 };
 Game.defaultProps = {
   nextPlayer() {},
