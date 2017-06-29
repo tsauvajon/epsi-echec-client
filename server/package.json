@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": {},
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "socket.io": "^2.0.3"
+  }
 }
