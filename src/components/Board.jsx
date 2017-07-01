@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Square from './Square';
 import { getX, getY } from '../utility/util';
 
@@ -73,4 +74,4 @@ Board.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default Board;
+export default connect()(Board);

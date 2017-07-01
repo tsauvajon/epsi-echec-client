@@ -1,7 +1,7 @@
 {
   "name": "epsi-echec-client",
   "version": "0.9.0",
-  "homepage": "https://tsauvajon.github.io/epsi-echec-client",
+  "homepage": "https://tsauvajon.github.io/",
   "private": false,
   "devDependencies": {},
   "dependencies": {
@@ -23,11 +23,13 @@
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-redux": "^5.0.3",
+    "react-redux": "^5.0.5",
     "react-scripts": "^1.0.7",
     "react-test-renderer": "^15.4.2",
     "redux": "^3.6.0",
-    "redux-socket.io": "^1.4.0"
+    "redux-socket.io": "^1.4.0",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

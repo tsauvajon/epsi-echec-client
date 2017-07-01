@@ -1,4 +1,6 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import createSocketIoMiddleware from 'redux-socket.io';
+import io from 'socket.io-client';
 import checksApp from '../reducers';
 import { PieceEnum } from '../utility/util';
 
@@ -74,6 +76,21 @@ const initialState = {
   squares: getDefaultPieces(),
 };
 
-const store = createStore(checksApp, initialState);
+// Initialisation de socket io
+
+const socket = io('http://localhost:3000');
+const socketIoMiddleware = createSocketIoMiddleware(socket, 'server/');
+const store = createStore(checksApp, initialState, applyMiddleware(socketIoMiddleware));
+
+store.subscribe(() => {
+  console.log('new client state', store.getState());
+});
+
+store.dispatch({
+  type: 'ADD_PIECE',
+  id: 17,
+  player: 'black',
+  piece: 'PAWN',
+});
 
 export default store;
