@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { PieceEnum } from '../utility/util';
 // images
 import bishopBlack from '../pieces/bishop-black.svg';
@@ -75,4 +76,4 @@ Square.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default Square;
+export default connect()(Square);

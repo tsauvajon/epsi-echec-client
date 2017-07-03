@@ -5,6 +5,9 @@
   "repository": {},
   "license": "MIT",
   "dependencies": {
+    "express": "^4.15.3",
+    "express-static": "^1.1.0",
+    "nodemon": "^1.11.0",
     "socket.io": "^2.0.3"
   }
 }

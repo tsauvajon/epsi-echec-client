@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Game from './Game';
-
 import black from '../pieces/king-black.svg';
 import white from '../pieces/king-white.svg';
 import '../style/App.css';
@@ -65,4 +65,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);

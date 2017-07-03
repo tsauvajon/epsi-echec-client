@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Board from './Board';
 import { getDefaultPieces, PieceEnum } from '../utility/util';
 import { pieceMoves, move } from '../moves/index';
@@ -201,4 +202,4 @@ Game.defaultProps = {
   checkMate() {},
 };
 
-export default Game;
+export default connect()(Game);
