@@ -100,8 +100,8 @@ Object {
     },
     Object {
       "id": 17,
-      "piece": undefined,
-      "player": undefined,
+      "piece": "PAWN",
+      "player": "black",
     },
     Object {
       "id": 18,
