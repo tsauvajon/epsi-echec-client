@@ -74,11 +74,11 @@ const getDefaultPieces = () => (
 
 const initialState = {
   squares: getDefaultPieces(),
-  game: {
-    nextPlayer: 'white',
-    selected: null,
-    castling: [0, 7, 56, 63],
-  },
+  // game: {
+  //   nextPlayer: 'white',
+  //   selected: null,
+  //   castling: [0, 7, 56, 63],
+  // },
 };
 
 // Initialisation de socket io
@@ -88,14 +88,14 @@ const socketIoMiddleware = createSocketIoMiddleware(socket, 'server/');
 const store = createStore(checksApp, initialState, applyMiddleware(socketIoMiddleware));
 
 store.subscribe(() => {
-  console.log('new client state', store.getState());
+  // console.log('new client state', store.getState());
 });
 
-store.dispatch({
-  type: 'ADD_PIECE',
-  id: 17,
-  player: 'black',
-  piece: 'PAWN',
-});
+// store.dispatch({
+//   type: 'ADD_PIECE',
+//   id: 17,
+//   player: 'black',
+//   piece: 'PAWN',
+// });
 
 export default store;

@@ -14,7 +14,7 @@ const removeCastling = (i, { castling }) => {
   return castling.filter(item => item !== i);
 };
 
-const game = (state = [], action) => {
+const game = (state, action) => {
   switch (action.type) {
     case 'SWITCH_PLAYER':
       return {

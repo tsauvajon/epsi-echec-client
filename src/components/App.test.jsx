@@ -1,23 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
+import store from '../utility/store';
 import App from '../components/App';
 import Game from '../components/Game';
 import { getX, getY, getId } from '../utility/util';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>, div);
 });
 
 it('renders correctly for both players', () => {
   const white = renderer.create(
-    <Game player="white" />,
+    <Provider store={store}>
+      <Game player="white" />
+    </Provider>,
   ).toJSON();
   expect(white).toMatchSnapshot();
 
   const black = renderer.create(
-    <Game player="black" />,
+    <Provider store={store}>
+      <Game player="black" />
+    </Provider>,
   ).toJSON();
   expect(black).toMatchSnapshot();
 });
