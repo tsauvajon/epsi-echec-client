@@ -3,6 +3,7 @@ import createSocketIoMiddleware from 'redux-socket.io';
 import io from 'socket.io-client';
 import checksApp from '../reducers';
 import { PieceEnum } from '../utility/util';
+import { initialGame } from '../utility/initialStates';
 
 // définit la couleur de la pièce
 const definePlayer = (i) => {
@@ -74,11 +75,7 @@ const getDefaultPieces = () => (
 
 const initialState = {
   squares: getDefaultPieces(),
-  // game: {
-  //   nextPlayer: 'white',
-  //   selected: null,
-  //   castling: [0, 7, 56, 63],
-  // },
+  game: initialGame,
 };
 
 // Initialisation de socket io

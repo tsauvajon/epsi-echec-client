@@ -26,6 +26,6 @@ it('handles unknown actions', () => {
   deepFreeze(action);
 
   expect(
-    checksApp(stateBefore, action),
-  ).toEqual(stateAfter);
+    checksApp(stateBefore, action).squares,
+  ).toEqual(stateAfter.squares);
 });

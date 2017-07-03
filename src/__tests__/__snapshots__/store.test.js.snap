@@ -2,6 +2,16 @@
 
 exports[`generates default store 1`] = `
 Object {
+  "game": Object {
+    "castling": Array [
+      0,
+      7,
+      56,
+      63,
+    ],
+    "nextPlayer": "white",
+    "selected": null,
+  },
   "squares": Array [
     Object {
       "id": 0,

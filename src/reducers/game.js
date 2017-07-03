@@ -1,3 +1,5 @@
+import initialGame from '../utility/initialStates';
+
 const removeCastling = (i, { castling }) => {
   // si le tableau est déjà vide pas la peine de vérifier
   if (!castling.length) return [];
@@ -14,7 +16,7 @@ const removeCastling = (i, { castling }) => {
   return castling.filter(item => item !== i);
 };
 
-const game = (state, action) => {
+const game = (state = initialGame, action) => {
   switch (action.type) {
     case 'SWITCH_PLAYER':
       return {
