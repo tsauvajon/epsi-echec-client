@@ -1,0 +1,959 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly for both players 1`] = `
+<div
+  className="game"
+>
+  <div
+    className="game-board"
+  >
+    <div>
+      <div>
+        <div>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black rook"
+              className="chessman"
+              src="rook-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black knight"
+              className="chessman"
+              src="knight-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black bishop"
+              className="chessman"
+              src="bishop-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black queen"
+              className="chessman"
+              src="queen-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black king"
+              className="chessman"
+              src="king-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black bishop"
+              className="chessman"
+              src="bishop-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black knight"
+              className="chessman"
+              src="knight-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black rook"
+              className="chessman"
+              src="rook-black.svg"
+            />
+          </button>
+        </div>
+        <div>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+        </div>
+        <div>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+        </div>
+        <div>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+        </div>
+        <div>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+        </div>
+        <div>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+        </div>
+        <div>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+        </div>
+        <div>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white rook"
+              className="chessman"
+              src="rook-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white knight"
+              className="chessman"
+              src="knight-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white bishop"
+              className="chessman"
+              src="bishop-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white queen"
+              className="chessman"
+              src="queen-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white king"
+              className="chessman"
+              src="king-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white bishop"
+              className="chessman"
+              src="bishop-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white knight"
+              className="chessman"
+              src="knight-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white rook"
+              className="chessman"
+              src="rook-white.svg"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders correctly for both players 2`] = `
+<div
+  className="game"
+>
+  <div
+    className="game-board"
+  >
+    <div>
+      <div>
+        <div>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white rook"
+              className="chessman"
+              src="rook-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white knight"
+              className="chessman"
+              src="knight-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white bishop"
+              className="chessman"
+              src="bishop-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white king"
+              className="chessman"
+              src="king-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white queen"
+              className="chessman"
+              src="queen-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white bishop"
+              className="chessman"
+              src="bishop-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white knight"
+              className="chessman"
+              src="knight-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white rook"
+              className="chessman"
+              src="rook-white.svg"
+            />
+          </button>
+        </div>
+        <div>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="white pawn"
+              className="chessman"
+              src="pawn-white.svg"
+            />
+          </button>
+        </div>
+        <div>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+        </div>
+        <div>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+        </div>
+        <div>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+        </div>
+        <div>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          />
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          />
+        </div>
+        <div>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black pawn"
+              className="chessman"
+              src="pawn-black.svg"
+            />
+          </button>
+        </div>
+        <div>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black rook"
+              className="chessman"
+              src="rook-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black knight"
+              className="chessman"
+              src="knight-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black bishop"
+              className="chessman"
+              src="bishop-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black king"
+              className="chessman"
+              src="king-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black queen"
+              className="chessman"
+              src="queen-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black bishop"
+              className="chessman"
+              src="bishop-black.svg"
+            />
+          </button>
+          <button
+            className="square alt-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black knight"
+              className="chessman"
+              src="knight-black.svg"
+            />
+          </button>
+          <button
+            className="square regular-square"
+            onClick={[Function]}
+          >
+            <img
+              alt="black rook"
+              className="chessman"
+              src="rook-black.svg"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

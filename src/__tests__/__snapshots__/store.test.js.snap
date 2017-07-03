@@ -1,0 +1,338 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generates default store 1`] = `
+Object {
+  "game": Object {
+    "castling": Array [
+      0,
+      7,
+      56,
+      63,
+    ],
+    "nextPlayer": "white",
+    "selected": null,
+  },
+  "squares": Array [
+    Object {
+      "id": 0,
+      "piece": "rook",
+      "player": "black",
+    },
+    Object {
+      "id": 1,
+      "piece": "knight",
+      "player": "black",
+    },
+    Object {
+      "id": 2,
+      "piece": "bishop",
+      "player": "black",
+    },
+    Object {
+      "id": 3,
+      "piece": "queen",
+      "player": "black",
+    },
+    Object {
+      "id": 4,
+      "piece": "king",
+      "player": "black",
+    },
+    Object {
+      "id": 5,
+      "piece": "bishop",
+      "player": "black",
+    },
+    Object {
+      "id": 6,
+      "piece": "knight",
+      "player": "black",
+    },
+    Object {
+      "id": 7,
+      "piece": "rook",
+      "player": "black",
+    },
+    Object {
+      "id": 8,
+      "piece": "pawn",
+      "player": "black",
+    },
+    Object {
+      "id": 9,
+      "piece": "pawn",
+      "player": "black",
+    },
+    Object {
+      "id": 10,
+      "piece": "pawn",
+      "player": "black",
+    },
+    Object {
+      "id": 11,
+      "piece": "pawn",
+      "player": "black",
+    },
+    Object {
+      "id": 12,
+      "piece": "pawn",
+      "player": "black",
+    },
+    Object {
+      "id": 13,
+      "piece": "pawn",
+      "player": "black",
+    },
+    Object {
+      "id": 14,
+      "piece": "pawn",
+      "player": "black",
+    },
+    Object {
+      "id": 15,
+      "piece": "pawn",
+      "player": "black",
+    },
+    Object {
+      "id": 16,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 17,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 18,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 19,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 20,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 21,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 22,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 23,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 24,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 25,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 26,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 27,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 28,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 29,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 30,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 31,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 32,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 33,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 34,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 35,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 36,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 37,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 38,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 39,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 40,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 41,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 42,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 43,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 44,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 45,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 46,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 47,
+      "piece": undefined,
+      "player": undefined,
+    },
+    Object {
+      "id": 48,
+      "piece": "pawn",
+      "player": "white",
+    },
+    Object {
+      "id": 49,
+      "piece": "pawn",
+      "player": "white",
+    },
+    Object {
+      "id": 50,
+      "piece": "pawn",
+      "player": "white",
+    },
+    Object {
+      "id": 51,
+      "piece": "pawn",
+      "player": "white",
+    },
+    Object {
+      "id": 52,
+      "piece": "pawn",
+      "player": "white",
+    },
+    Object {
+      "id": 53,
+      "piece": "pawn",
+      "player": "white",
+    },
+    Object {
+      "id": 54,
+      "piece": "pawn",
+      "player": "white",
+    },
+    Object {
+      "id": 55,
+      "piece": "pawn",
+      "player": "white",
+    },
+    Object {
+      "id": 56,
+      "piece": "rook",
+      "player": "white",
+    },
+    Object {
+      "id": 57,
+      "piece": "knight",
+      "player": "white",
+    },
+    Object {
+      "id": 58,
+      "piece": "bishop",
+      "player": "white",
+    },
+    Object {
+      "id": 59,
+      "piece": "queen",
+      "player": "white",
+    },
+    Object {
+      "id": 60,
+      "piece": "king",
+      "player": "white",
+    },
+    Object {
+      "id": 61,
+      "piece": "bishop",
+      "player": "white",
+    },
+    Object {
+      "id": 62,
+      "piece": "knight",
+      "player": "white",
+    },
+    Object {
+      "id": 63,
+      "piece": "rook",
+      "player": "white",
+    },
+  ],
+}
+`;
