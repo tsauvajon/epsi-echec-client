@@ -72,6 +72,11 @@ const getDefaultPieces = () => (
 
 const initialState = {
   squares: getDefaultPieces(),
+  game: {
+    nextPlayer: 'white',
+    selected: null,
+    castling: [0, 7, 56, 63],
+  },
 };
 
 const store = createStore(checksApp, initialState);
