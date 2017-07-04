@@ -1,4 +1,4 @@
-import initialGame from '../utility/initialStates';
+import initialGame from '../utility/initialGame';
 
 const removeCastling = (i, { castling }) => {
   // si le tableau est déjà vide pas la peine de vérifier

@@ -2,8 +2,8 @@ import { createStore, applyMiddleware } from 'redux';
 import createSocketIoMiddleware from 'redux-socket.io';
 import io from 'socket.io-client';
 import checksApp from '../reducers';
-import { PieceEnum } from '../utility/util';
-import { initialGame } from '../utility/initialStates';
+import { PieceEnum } from './util';
+import { initialGame } from './initialGame';
 
 // définit la couleur de la pièce
 const definePlayer = (i) => {
