@@ -10,6 +10,8 @@ env:
 script:
   - yarn lint
   - yarn test:once
+  - yarn build
+  - bash ./.travis-server.sh
   # - yarn export:coverage
   # - bash ./.travis-deploy.sh
 # deploy:
