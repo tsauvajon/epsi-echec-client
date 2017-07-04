@@ -31,14 +31,17 @@ const squares = (state = [], action) => {
     case 'ADD_CLASS':
       return state.map(
           (s) => {
-            if (s.id === action.squareId) {
-              const newSquare = { ...s };
-              if (!newSquare.classes) {
-                newSquare.classes = [action.class];
-              } else {
-                newSquare.classes.push(action.class);
+            if (s.id === action.id) {
+              if (!s.classes) {
+                return {
+                  ...s,
+                  classes: [action.name]
+                }
+                return {
+                  ...s,
+                  classes: [...s.classes, action.name]
+                }
               }
-              return newSquare;
             }
             return s;
           },

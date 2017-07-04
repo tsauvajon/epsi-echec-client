@@ -21,7 +21,8 @@ const game = (state = initialGame, action) => {
     case 'SWITCH_PLAYER':
       return {
         ...state,
-        nextPlayer: state.nextPlayer === 'black' ? 'white' : 'black',
+        // if action.nextPlayer is undefined, just switch from current player
+        nextPlayer: action.nextPlayer || (state.nextPlayer === 'black' ? 'white' : 'black'),
       };
     case 'REMOVE_CASTLING_POSSIBILITY':
       return {
@@ -33,6 +34,11 @@ const game = (state = initialGame, action) => {
         ...state,
         selected: action.id,
       };
+    case 'UNSELECT_PIECE':
+      return {
+        ...state,
+        selected: null,
+      }
     default:
       return state;
   }

@@ -37,7 +37,7 @@
     "test": "react-scripts test --env=jsdom",
     "test:full": "yarn lint && yarn test:coverage",
     "test:coverage": "react-scripts test --env=jsdom --coverage",
-    "test:once": "cross-env CI=true react-scripts test --env=jsdom --updateSnapshot",
+    "test:once": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "export:coverage": "codecov",
     "lint": "./node_modules/.bin/eslint ./ --cache --ignore-path .gitignore",
