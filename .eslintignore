@@ -1,3 +1,6 @@
 # built files
 build/*
 coverage/*
+
+# server (because it has its own package.json)
+server
