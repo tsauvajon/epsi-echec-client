@@ -43,3 +43,6 @@ jspm_packages
 build
 
 .eslintcache
+
+# merde de MacOS
+.DS_Store
