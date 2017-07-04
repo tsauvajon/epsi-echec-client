@@ -35,13 +35,13 @@ const squares = (state = [], action) => {
               if (!s.classes) {
                 return {
                   ...s,
-                  classes: [action.name]
-                }
-                return {
-                  ...s,
-                  classes: [...s.classes, action.name]
-                }
+                  classes: [action.name],
+                };
               }
+              return {
+                ...s,
+                classes: [...s.classes, action.name],
+              };
             }
             return s;
           },

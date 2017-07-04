@@ -38,7 +38,7 @@ const game = (state = initialGame, action) => {
       return {
         ...state,
         selected: null,
-      }
+      };
     default:
       return state;
   }

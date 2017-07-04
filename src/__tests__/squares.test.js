@@ -112,7 +112,7 @@ describe('squares reducer', () => {
   });
 
   describe('classes', () => {
-    it('adds a class', () => {
+    it('adds a class to inexisting arrays', () => {
       const stateBefore = { squares: [
         { id: 0 },
         { id: 1 },
@@ -123,6 +123,30 @@ describe('squares reducer', () => {
         {
           id: 1,
           classes: [
+            'test',
+          ],
+        },
+      ] };
+
+      deepFreeze(stateBefore);
+
+      expect(
+        squares(stateBefore.squares, addClass(1, 'test')),
+      ).toEqual(stateAfter.squares);
+    });
+
+    it('adds a class to existing arrays', () => {
+      const stateBefore = { squares: [
+        { id: 0 },
+        { id: 1, classes: ['testabcdefgh'] },
+      ] };
+
+      const stateAfter = { squares: [
+        { id: 0 },
+        {
+          id: 1,
+          classes: [
+            'testabcdefgh',
             'test',
           ],
         },

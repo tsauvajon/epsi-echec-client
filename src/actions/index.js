@@ -43,7 +43,7 @@ const switchPlayer = nextPlayer => ({
 const removeCastlingPossibility = id => ({
   type: 'REMOVE_CASTLING_POSSIBILITY',
   id,
-}) ;
+});
 
 export {
   movePiece,
