@@ -17,7 +17,7 @@ describe('game reducer', () => {
 
   deepFreeze(stateBefore);
 
-  it('toggles player', () => {
+  it('toggles player black => white', () => {
     const stateAfter = {
       ...stateBefore,
       nextPlayer: 'black',
@@ -26,6 +26,21 @@ describe('game reducer', () => {
     expect(
       game(stateBefore, switchPlayer()),
     ).toEqual(stateAfter);
+  });
+
+  it('toggles player white => black', () => {
+    const state1 = {
+      ...stateBefore,
+      nextPlayer: 'black',
+    };
+
+    deepFreeze(state1);
+
+    const state2 = { ...stateBefore };
+
+    expect(
+      game(state1, switchPlayer()),
+    ).toEqual(state2);
   });
 
   it('switches player to black', () => {
@@ -39,7 +54,7 @@ describe('game reducer', () => {
     ).toEqual(stateAfter);
   });
 
-  it('switches player to black', () => {
+  it('switches player to white', () => {
     // stateAfter === stateBefore
     const stateAfter = {
       ...stateBefore,
@@ -82,6 +97,18 @@ describe('game reducer', () => {
   });
 
   describe('removes castling possibilities', () => {
+    it('should not change anything when castling is already empty', () => {
+      const stateBeforeAndAfter = {
+        ...stateBefore,
+        castling: [],
+      };
+
+      deepFreeze(stateBeforeAndAfter);
+
+      expect(game(stateBeforeAndAfter, removeCastlingPossibility(7)))
+        .toEqual(stateBeforeAndAfter);
+    });
+
     // castling: [0, 7, 56, 63]
     it('when black king moves or is check', () => {
       // 4 => should remove 0 and 7

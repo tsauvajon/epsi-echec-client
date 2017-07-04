@@ -1,6 +1,6 @@
 import Position from '../utility/Position';
 
-const kingMoves = (square, squares, castling = []) => {
+const kingMoves = (square, squares, castling) => {
   const moves = [];
   const eats = [];
   const castles = [];
