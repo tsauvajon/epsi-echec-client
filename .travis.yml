@@ -8,8 +8,6 @@ env:
       - CI=true
       - NODE_ENV=production
 script:
-  - yarn
-  - bash ./.travis-server.sh
   - yarn lint
   - yarn test:once
   - yarn build
